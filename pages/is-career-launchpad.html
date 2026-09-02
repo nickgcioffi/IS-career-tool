@@ -4,30 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IS Career Launchpad</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet">
+<link href="../css/styles.css" rel="stylesheet">
 <style>
   :root{
-    --ink:#1B2A3D;
-    --ink-soft:#3A4A5E;
-    --paper:#F1EFE6;
+    --ink:#212529;
+    --ink-soft:#495057;
+    --paper:#F8F9FA;
     --card:#FFFFFF;
-    --gold:#A97C24;
-    --gold-soft:#E9DCBB;
-    --teal:#3D6B5C;
-    --teal-soft:#DCE8E2;
-    --brick:#8B3A3A;
-    --brick-soft:#F0DEDA;
-    --line:#D6CFBA;
-    --text:#232323;
-    --muted:#6B6455;
+    --gold:#2937F0;
+    --gold-soft:#DEE0FD;
+    --teal:#9F1AE2;
+    --teal-soft:#F1E3F8;
+    --brick:#DC3545;
+    --brick-soft:#F8D7DA;
+    --line:#DEE2E6;
+    --text:#212529;
+    --muted:#6C757D;
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
     background:var(--paper);
     color:var(--text);
-    font-family:'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family:'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height:1.5;
     -webkit-font-smoothing:antialiased;
   }
@@ -193,7 +198,7 @@
     font-size:13px;
     text-transform:none;
     color:var(--gold);
-    font-family:'Public Sans', sans-serif;
+    font-family:'Kanit', sans-serif;
     font-weight:700;
     letter-spacing:.2px;
     margin-bottom:10px;
@@ -318,7 +323,18 @@
     align-items:center;
     margin-top:10px;
   }
+  .answer-actions{display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end;}
   .attempt-status{font-size:12.5px; color:var(--muted);}
+  .check-btn{
+    background:#fff;
+    border:1px solid #2937f0;
+    border-radius:50rem;
+    color:#2937f0;
+    font-size:13.5px;
+    font-weight:600;
+    padding:8px 16px;
+  }
+  .check-btn:hover{background:#f1efff;}
   .reveal-btn{
     background:var(--ink);
     color:#F1EFE6;
@@ -336,10 +352,27 @@
     border-top:1px dashed var(--line);
   }
   .reveal-panel.open{display:block;}
+  .feedback-panel{
+    background:#f8f9fa;
+    border:1px solid var(--line);
+    border-radius:.75rem;
+    display:none;
+    margin-top:16px;
+    padding:16px;
+  }
+  .feedback-panel.open{display:block;}
+  .feedback-summary{align-items:center; display:flex; gap:10px; margin-bottom:12px;}
+  .feedback-score{background:#dee0fd; border-radius:50rem; color:#2937f0; flex-shrink:0; font-size:12px; font-weight:700; padding:5px 10px;}
+  .feedback-summary strong{color:var(--ink); font-size:14px;}
+  .feedback-list{display:grid; gap:8px; list-style:none; margin:0; padding:0;}
+  .feedback-item{align-items:flex-start; display:flex; font-size:13px; gap:8px; line-height:1.45;}
+  .feedback-item.pass i{color:#198754;}
+  .feedback-item.improve i{color:#9f1ae2;}
+  .feedback-note{border-top:1px solid var(--line); color:var(--muted); font-size:11.5px; margin-top:12px; padding-top:10px;}
   .reveal-panel h4{
     font-size:12.5px;
     color:var(--gold);
-    font-family:'Public Sans', sans-serif;
+    font-family:'Kanit', sans-serif;
     font-weight:700;
     margin-bottom:7px;
   }
@@ -361,6 +394,67 @@
     color:var(--muted);
   }
 
+  /* Shared IS Career Launchpad visual language */
+  #mainNav{background:#fff;}
+  .launchpad-hero{
+    background:linear-gradient(45deg, #2937f0, #9f1ae2);
+    color:#fff;
+    padding:8.5rem 0 4.5rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .launchpad-hero::after{
+    background:rgba(255,255,255,.1);
+    border-radius:50%;
+    content:"";
+    height:24rem;
+    position:absolute;
+    right:-7rem;
+    top:-8rem;
+    width:24rem;
+  }
+  .launchpad-hero .container{position:relative; z-index:1;}
+  .launchpad-hero h1{color:#fff; font-size:clamp(2.8rem, 6vw, 5rem); letter-spacing:-.035em;}
+  .launchpad-hero p{color:rgba(255,255,255,.78); font-size:1.1rem; max-width:720px;}
+  .launchpad-kicker{font-family:'Kanit',sans-serif; font-size:.8rem; letter-spacing:.12em; text-transform:uppercase;}
+  nav.modules{
+    justify-content:center;
+    margin:0 auto 2.25rem;
+    padding-top:0;
+  }
+  .mode-btn{
+    background:#fff;
+    border:1px solid #dee2e6;
+    border-radius:50rem;
+    color:#495057;
+    padding:10px 22px;
+  }
+  .mode-btn.active{
+    background:linear-gradient(45deg, #2937f0, #9f1ae2);
+    border-color:#2937f0;
+    color:#fff;
+  }
+  .mode-btn:hover:not(.active){background:#f1efff; border-color:#2937f0; color:#2937f0;}
+  main{padding-top:2.5rem;}
+  .directory,.dossier,.qcard{border-color:#dee2e6; border-radius:1rem;}
+  .dossier,.qcard{box-shadow:0 .5rem 1.5rem rgba(33,37,41,.06);}
+  .dir-item.active{background:#f1efff; border-left-color:#2937f0;}
+  .section h3{color:#2937f0; border-bottom-color:#dee0fd;}
+  .badge{background:#f1efff; color:#5f1691;}
+  .growth-note{background:#f4f2ff; border-left-color:#2937f0;}
+  .role-chip{border-radius:50rem;}
+  .role-chip.active{background:linear-gradient(45deg, #2937f0, #9f1ae2); border-color:#2937f0; color:#fff;}
+  .role-chip:hover:not(.active){border-color:#2937f0; color:#2937f0;}
+  .progress-pill{background:#f1e3f8; color:#7314a5;}
+  .reveal-btn{background:#2937f0; border-radius:50rem; padding:9px 18px;}
+  .reveal-btn:hover{background:#202bd0;}
+  .tip{background:#f1e3f8; color:#5f167f; border-radius:.75rem;}
+  .qcard textarea{background:#fff; border-radius:.5rem;}
+  .qcard textarea:focus{border-color:#2937f0; box-shadow:0 0 0 .2rem rgba(41,55,240,.15); outline:none;}
+  .site-footer{background:#000; color:rgba(255,255,255,.5);}
+  .site-footer a{color:rgba(255,255,255,.72); text-decoration:none;}
+  .method-note{background:#f8f9fa; color:#6c757d; font-size:.78rem; line-height:1.65;}
+
   @media (max-width: 820px){
     .explore-layout{grid-template-columns:1fr;}
     .directory{position:static;}
@@ -368,31 +462,49 @@
     .comp-row{flex-wrap:wrap;}
     .comp-label{width:auto;}
     .comp-range{width:auto; text-align:left;}
+    .qcard-actions{align-items:flex-start; flex-direction:column;}
+    .answer-actions{justify-content:flex-start; width:100%;}
   }
 </style>
 </head>
-<body>
+<body id="page-top">
 
-<header class="site">
-  <div class="header-inner">
-    <div>
-      <div class="wordmark">IS Career <em>Launchpad</em></div>
-      <div class="header-sub">Built for BYU Information Systems students — explore where an IS degree can take you, then practice the interview that gets you there.</div>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
+  <div class="container px-5">
+    <a class="navbar-brand fw-bold" href="../index.html">IS Career Launchpad</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="bi-list"></i></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+        <li class="nav-item"><a class="nav-link me-lg-3" href="cloud.html">Cloud Infrastructure</a></li>
+        <li class="nav-item"><a class="nav-link me-lg-3" href="product.html">Product Management</a></li>
+        <li class="nav-item"><a class="nav-link me-lg-3" href="cyber.html">Cybersecurity</a></li>
+        <li class="nav-item"><a class="nav-link me-lg-3" href="data.html">Data Analytics</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="is-career-launchpad.html">Interview Prep</a></li>
+      </ul>
     </div>
   </div>
-  <nav class="modules">
-    <button class="mode-btn active" data-mode="explore">Explore careers</button>
-    <button class="mode-btn" data-mode="interview">Interview prep</button>
-  </nav>
+</nav>
+
+<header class="launchpad-hero">
+  <div class="container px-4 px-lg-5">
+    <div class="launchpad-kicker mb-3">Built for BYU Information Systems students</div>
+    <h1 class="mb-3">Explore a path.<br><em>Practice the interview.</em></h1>
+    <p class="mb-0">Understand where an IS degree can take you, then prepare thoughtful answers for the questions that help you get there.</p>
+  </div>
 </header>
 
 <main>
+
+  <nav class="modules" aria-label="Launchpad tools">
+    <button class="mode-btn active" data-mode="explore"><i class="bi bi-compass me-2"></i>Explore careers</button>
+    <button class="mode-btn" data-mode="interview"><i class="bi bi-chat-square-text me-2"></i>Interview prep</button>
+  </nav>
 
   <!-- ============ EXPLORE VIEW ============ -->
   <section id="view-explore" class="view active">
     <div class="explore-layout">
       <div class="directory">
-        <div class="directory-label">Six IS career paths</div>
+        <div class="directory-label">Four IS career paths</div>
         <div id="directory-list"></div>
       </div>
       <div class="dossier" id="dossier"></div>
@@ -412,10 +524,17 @@
 
 </main>
 
-<footer class="site">
-  <strong>How this was built:</strong> Salary bands are composites drawn from 2026 public salary data (U.S. Bureau of Labor Statistics OEWS/occupation data, Glassdoor, ZipRecruiter, PayScale, and industry-specific guides from Product School and KORE1) as of September 2026 — actual offers vary significantly by location, company size, and industry. Interview questions reflect common patterns reported across public interview-prep resources and standard industry practice for each role, not any single employer's proprietary question bank. This is a prototype built for an IS course project and is not affiliated with, endorsed by, or sourced from any specific employer's confidential hiring materials.
+<aside class="method-note py-4">
+  <div class="container px-4 px-lg-5"><strong class="text-dark">About this tool:</strong> Salary bands are composites drawn from 2026 public salary data (U.S. Bureau of Labor Statistics OEWS/occupation data, Glassdoor, ZipRecruiter, PayScale, and industry-specific guides from Product School and KORE1) as of September 2026 — actual offers vary significantly by location, company size, and industry. Interview questions reflect common public interview-prep patterns and standard industry practice, not any employer's proprietary question bank.</div>
+</aside>
+
+<footer class="site-footer text-center py-5">
+  <div class="container px-5">
+    <div class="small"><div class="mb-2">&copy; Section 03-01 2026. All Rights Reserved.</div><p class="mb-0">Built with Bootstrap and created as an IS course project.</p></div>
+  </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 /* =========================================================
    DATA — Part 1: Career Discovery
@@ -598,6 +717,114 @@ const CAREERS = [
   }
 ];
 
+/* Four site-wide paths used only by the Explore Careers view. */
+const EXPLORE_CAREERS = [
+  {
+    id: 'cloud',
+    title: 'Cloud Infrastructure',
+    hook: 'Builds, operates, secures, and designs the platforms modern organizations run on.',
+    tagline: 'Cloud infrastructure combines business systems, networking, automation, security, and operations. Roles range from support and cloud engineering to DevOps, security, and solutions architecture.',
+    dayToDay: [
+      'Provision and monitor cloud resources, networks, storage, identity, and application environments',
+      'Automate deployments and troubleshoot availability, performance, security, or cost issues',
+      'Work with developers and business teams to make systems reliable and scalable'
+    ],
+    skills: ['AWS / Azure / GCP', 'Linux', 'Networking', 'Terraform', 'Docker', 'IAM', 'Monitoring'],
+    entryExpectations: [
+      'Understand basic networking, Linux, identity and access, and one cloud platform',
+      'Be able to deploy and explain a small secure cloud application',
+      'Show hands-on evidence through a lab, project, homelab, or foundational certification'
+    ],
+    strongCandidate: [
+      'Troubleshoots methodically and communicates technical problems clearly',
+      'Can explain architecture and cost tradeoffs instead of only following tutorials',
+      'Documents a real deployment with diagrams, security decisions, and lessons learned'
+    ],
+    comp: {entry:{min:60,max:110}, mid:{min:100,max:155}, senior:{min:150,max:200}},
+    growth: 'Students often enter through cloud support, systems, implementation, or junior engineering roles, then progress toward platform engineering, cloud security, site reliability, or architecture.',
+    sources: 'Summary adapted from the Cloud Infrastructure career explorer on this site; salary bands are broad planning ranges across its featured roles.',
+    standalonePage: 'cloud.html'
+  },
+  {
+    id: 'product',
+    title: 'Product Management',
+    hook: 'Decides what should be built, why it matters, and how success will be measured.',
+    tagline: 'Product managers connect customer problems, business goals, design, engineering, and data. They provide direction and make tradeoffs without necessarily owning the code.',
+    dayToDay: [
+      'Talk with users and stakeholders to understand problems before proposing features',
+      'Write requirements, prioritize a backlog, and align designers and engineers',
+      'Review product metrics to learn whether a shipped feature achieved its goal'
+    ],
+    skills: ['RICE / MoSCoW', 'PRDs & user stories', 'Basic SQL', 'Figma', 'A/B testing', 'Jira / Productboard'],
+    entryExpectations: [
+      'Use evidence and a clear framework to reason through competing priorities',
+      'Understand metrics, APIs, and technical debt well enough to work with engineers',
+      'Demonstrate that you have helped build, test, or improve something for real users'
+    ],
+    strongCandidate: [
+      'Starts with the user problem instead of immediately proposing a feature',
+      'Communicates decisions clearly and influences teammates without formal authority',
+      'Tests assumptions with the smallest useful experiment when information is limited'
+    ],
+    comp: {entry:{min:77,max:108}, mid:{min:101,max:158}, senior:{min:150,max:250}},
+    growth: 'A common structured entry point is Associate Product Manager, followed by Product Manager, Senior PM, and eventually Group PM or Director roles.',
+    sources: 'Summary and planning ranges adapted from the Product Management page on this site.',
+    standalonePage: 'product.html'
+  },
+  {
+    id: 'cyber-path',
+    title: 'Cybersecurity',
+    hook: 'Protects systems, networks, applications, and data from security threats.',
+    tagline: 'Cybersecurity professionals monitor systems, investigate suspicious activity, respond to incidents, find vulnerabilities, and help organizations reduce technical risk.',
+    dayToDay: [
+      'Monitor alerts and investigate unusual system or network activity',
+      'Assess vulnerabilities, document findings, and support incident response',
+      'Help teams strengthen access, configurations, applications, and data protection'
+    ],
+    skills: ['Networking', 'Linux / Windows', 'SIEM', 'Wireshark', 'Nmap', 'Scripting', 'Cloud security'],
+    entryExpectations: [
+      'Know basic networking, operating systems, security concepts, and common threats',
+      'Practice with logs, labs, vulnerability tools, or capture-the-flag exercises',
+      'Use coursework, projects, internships, or certifications to demonstrate practical knowledge'
+    ],
+    strongCandidate: [
+      'Combines curiosity and attention to detail with a calm investigative process',
+      'Can explain technical risk clearly to nontechnical stakeholders',
+      'Continues learning and can show hands-on evidence rather than vocabulary alone'
+    ],
+    comp: {entry:{min:55,max:85}, mid:{min:95,max:135}, senior:{min:130,max:160}},
+    growth: 'Entry-level analysts can advance into cloud security, engineering, penetration testing, consulting, incident response, architecture, or leadership.',
+    sources: 'Summary adapted from the Cybersecurity career page on this site; ranges align with the launchpad’s existing analyst benchmarks.',
+    standalonePage: 'cyber.html'
+  },
+  {
+    id: 'data-path',
+    title: 'Data Analytics',
+    hook: 'Turns raw information into insights that help organizations make better decisions.',
+    tagline: 'Data analysts gather and clean information, investigate business questions, build dashboards, and explain what the results mean for a decision.',
+    dayToDay: [
+      'Collect and clean data from databases, spreadsheets, and business systems',
+      'Use SQL and analytical methods to identify patterns and answer questions',
+      'Build clear dashboards or reports and present the business implications'
+    ],
+    skills: ['SQL', 'Excel', 'Tableau / Power BI', 'Python or R', 'Statistics', 'Data visualization'],
+    entryExpectations: [
+      'Write practical SQL queries and check data quality before drawing conclusions',
+      'Understand basic statistics and communicate without overstating what data proves',
+      'Show a portfolio project that moves from a business question to a clear recommendation'
+    ],
+    strongCandidate: [
+      'Begins with the decision or business question rather than the available dataset',
+      'Explains the path from raw data to conclusion and catches analytical mistakes',
+      'Balances technical ability with clear visual and verbal communication'
+    ],
+    comp: {entry:{min:55,max:75}, mid:{min:75,max:100}, senior:{min:100,max:140}},
+    growth: 'Analysts can grow into senior and lead roles or specialize in business intelligence, product analytics, analytics engineering, or data science.',
+    sources: 'Summary and planning ranges adapted from the Data Analytics page on this site.',
+    standalonePage: 'data.html'
+  }
+];
+
 /* =========================================================
    DATA — Part 2: Interview Prep
    ========================================================= */
@@ -706,14 +933,45 @@ const QUESTIONS = {
   ]
 };
 
+/* The interview module follows the same four paths used across the site. */
+const INTERVIEW_PATHS = [
+  {id:'cloud', title:'Cloud Infrastructure'},
+  {id:'product', title:'Product Management'},
+  {id:'cyber', title:'Cybersecurity'},
+  {id:'data', title:'Data Analytics'}
+];
+
+const INTERVIEW_QUESTIONS = {
+  cloud: [
+    {type:'behavioral', q:'Tell me about a time you diagnosed a technical problem you had never seen before.',
+      strong:'In a class deployment, our application worked locally but could not reach its cloud database. I first confirmed the application was using the expected connection settings, then tested name resolution and network access separately. That narrowed the issue to a security-group rule that allowed traffic from my laptop but not from the application subnet. I corrected the rule using least privilege, documented the cause, and added a deployment check so the team would catch the same issue earlier next time.',
+      tip:'Show a calm, repeatable troubleshooting process: verify assumptions, isolate layers, test one hypothesis at a time, and prevent recurrence.'},
+    {type:'behavioral', q:'Describe a time you automated a repetitive task or improved a technical process.',
+      strong:'Our group was configuring the same cloud resources manually for every demo, which created small differences between environments. I moved the configuration into a simple Terraform module and added variables for the few settings that changed. The setup became repeatable, reviewable in Git, and much faster to rebuild. I also wrote a short README so another teammate could use it without me.',
+      tip:'A strong answer connects automation to a measurable outcome such as consistency, speed, fewer errors, or easier handoff.'},
+    {type:'technical', q:'A web application in the cloud is suddenly unavailable. How would you begin troubleshooting?',
+      strong:'I would first confirm the scope and recent changes: whether every user is affected, when it started, and whether a deployment or configuration changed. Then I would follow the request path layer by layer—DNS, load balancer, network rules, compute or containers, application logs, and database dependencies—while checking monitoring for the first abnormal signal. If impact were ongoing, I would prioritize a safe rollback or failover, communicate status, and preserve evidence for a root-cause review.',
+      tip:'Interviewers want structured diagnosis and awareness of customer impact, communication, rollback, and learning—not a random list of cloud services.'},
+    {type:'technical', q:'What is infrastructure as code, and why would a team use it?',
+      strong:'Infrastructure as code defines cloud resources in version-controlled files instead of relying on manual console changes. Tools such as Terraform or a cloud-native template can create the same reviewed configuration repeatedly. That improves consistency, makes changes auditable, supports automated environments, and lets a team review infrastructure much like application code. It still requires state management, testing, and careful handling of secrets.',
+      tip:'Go beyond the definition by naming the operational benefits and at least one responsibility or tradeoff.'},
+    {type:'technical', q:'How would you secure a small cloud-hosted application at an entry level?',
+      strong:'I would start with least-privilege identities and avoid long-lived credentials in code. I would keep the database and internal services off the public internet, encrypt data in transit and at rest, store secrets in a managed secret service, patch dependencies, and enable centralized logs and alerts. I would also configure backups, budget alerts, and a simple recovery test because availability and cost are part of operating the system responsibly.',
+      tip:'Organize the answer around identity, network exposure, data, secrets, visibility, and recovery. Explain priorities instead of promising perfect security.'}
+  ],
+  product: QUESTIONS.apm,
+  cyber: QUESTIONS.cyber,
+  data: QUESTIONS.da
+};
+
 /* =========================================================
    RENDER: Explore module
    ========================================================= */
-let activeCareer = CAREERS[0].id;
+let activeCareer = EXPLORE_CAREERS[0].id;
 
 function renderDirectory(){
   const list = document.getElementById('directory-list');
-  list.innerHTML = CAREERS.map(c => `
+  list.innerHTML = EXPLORE_CAREERS.map(c => `
     <button class="dir-item ${c.id===activeCareer?'active':''}" data-id="${c.id}">
       <span class="t">${c.title}</span>
       <span class="d">${c.hook}</span>
@@ -730,7 +988,7 @@ function compBar(range, maxScale){
 }
 
 function renderDossier(){
-  const c = CAREERS.find(x=>x.id===activeCareer);
+  const c = EXPLORE_CAREERS.find(x=>x.id===activeCareer);
   const maxScale = 260;
   document.getElementById('dossier').innerHTML = `
     <div class="dossier-head">
@@ -786,11 +1044,11 @@ function renderDossier(){
 /* =========================================================
    RENDER: Interview module
    ========================================================= */
-let activeRole = CAREERS[0].id;
+let activeRole = INTERVIEW_PATHS[0].id;
 
 function renderRolePicker(){
   const wrap = document.getElementById('role-picker');
-  wrap.innerHTML = CAREERS.map(c=>`
+  wrap.innerHTML = INTERVIEW_PATHS.map(c=>`
     <button class="role-chip ${c.id===activeRole?'active':''}" data-id="${c.id}">${c.title}</button>
   `).join('');
   wrap.querySelectorAll('.role-chip').forEach(btn=>{
@@ -810,8 +1068,8 @@ function updateProgress(){
 }
 
 function renderDeck(){
-  const c = CAREERS.find(x=>x.id===activeRole);
-  const qs = QUESTIONS[activeRole];
+  const c = INTERVIEW_PATHS.find(x=>x.id===activeRole);
+  const qs = INTERVIEW_QUESTIONS[activeRole];
   document.getElementById('prep-title').textContent = c.title;
   document.getElementById('question-deck').innerHTML = qs.map((q, i)=>`
     <div class="qcard">
@@ -822,8 +1080,12 @@ function renderDeck(){
       <textarea placeholder="Type your attempt here before revealing the strong answer..." data-idx="${i}"></textarea>
       <div class="qcard-actions">
         <span class="attempt-status">Your attempt is only saved for this session.</span>
-        <button class="reveal-btn" data-idx="${i}">Reveal a strong answer</button>
+        <div class="answer-actions">
+          <button class="check-btn" type="button" data-idx="${i}">Check my structure</button>
+          <button class="reveal-btn" type="button" data-idx="${i}">Reveal a strong answer</button>
+        </div>
       </div>
+      <div class="feedback-panel" data-idx="${i}" aria-live="polite"></div>
       <div class="reveal-panel" data-idx="${i}">
         <h4>A strong answer</h4>
         <p>${q.strong}</p>
@@ -833,7 +1095,18 @@ function renderDeck(){
   `).join('');
 
   document.querySelectorAll('#question-deck textarea').forEach(ta=>{
-    ta.addEventListener('input', updateProgress);
+    ta.addEventListener('input', ()=>{
+      updateProgress();
+      const panel = document.querySelector(`.feedback-panel[data-idx="${ta.dataset.idx}"]`);
+      panel.classList.remove('open');
+    });
+  });
+  document.querySelectorAll('.check-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const index = Number(btn.dataset.idx);
+      const answer = document.querySelector(`#question-deck textarea[data-idx="${index}"]`).value;
+      renderBrowserFeedback(answer, qs[index].type, activeRole, document.querySelector(`.feedback-panel[data-idx="${index}"]`));
+    });
   });
   document.querySelectorAll('.reveal-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
@@ -844,6 +1117,48 @@ function renderDeck(){
     });
   });
   updateProgress();
+}
+
+function renderBrowserFeedback(answer, type, role, panel){
+  const text = answer.trim();
+  const words = text ? text.split(/\s+/).length : 0;
+  if(!text){
+    panel.innerHTML = '<div class="feedback-summary"><strong>Write an answer first, then check its structure.</strong></div><div class="feedback-note">Your response stays in this browser tab and is not sent anywhere.</div>';
+    panel.classList.add('open');
+    return;
+  }
+
+  const has = pattern => pattern.test(text);
+  const roleTerms = {
+    cloud: /cloud|aws|azure|gcp|linux|network|terraform|deploy|monitor|iam|container|log/i,
+    product: /user|customer|metric|priority|trade-?off|experiment|feature|engineer|design|roadmap/i,
+    cyber: /risk|threat|alert|network|log|incident|access|vulnerab|contain|security/i,
+    data: /data|sql|query|metric|dashboard|segment|chart|statistic|validate|analysis/i
+  };
+
+  const common = [
+    {pass:words >= 45, passText:`Enough detail to evaluate (${words} words)`, improveText:`Add more detail—the response is only ${words} words`},
+    {pass:has(/\bI\b|\bmy\b/i), passText:'Shows your individual ownership', improveText:'Clarify what you personally did, not only what the team did'}
+  ];
+  const behavioral = [
+    {pass:has(/when|during|project|class|intern|team|situation|problem/i), passText:'Establishes a specific situation', improveText:'Open with a specific situation and the challenge you faced'},
+    {pass:has(/\bI\s+(built|created|changed|asked|tested|analyzed|organized|implemented|decided|designed|fixed|led|used|worked)/i), passText:'Describes a concrete action you took', improveText:'Name the concrete action you took and why'},
+    {pass:has(/result|outcome|learned|improved|reduced|increased|finished|shipped|resolved|%|\$|\b\d+\b/i), passText:'Includes a result, measurement, or lesson', improveText:'End with the result, a measurement, or what you learned'}
+  ];
+  const technical = [
+    {pass:has(/first|then|next|after|finally|start|step/i), passText:'Uses a clear sequence or diagnostic process', improveText:'Organize the response into a clear sequence of steps'},
+    {pass:has(/because|so that|therefore|which means|trade-?off|rather than|in order to/i), passText:'Explains reasoning or a tradeoff', improveText:'Explain why you chose the approach or what tradeoff it makes'},
+    {pass:roleTerms[role].test(text), passText:'Uses concrete, path-relevant concepts', improveText:'Name a relevant tool, system, metric, or technical concept'},
+    {pass:has(/test|check|verify|validate|monitor|measure|log|rollback|document/i), passText:'Includes verification, measurement, or follow-through', improveText:'Explain how you would verify the result or follow through'}
+  ];
+  const checks = common.concat(type === 'behavioral' ? behavioral : technical);
+  const passed = checks.filter(check=>check.pass).length;
+  const label = passed === checks.length ? 'Strong structure' : passed >= checks.length - 1 ? 'Nearly there' : passed >= Math.ceil(checks.length / 2) ? 'Good foundation' : 'Needs more development';
+  panel.innerHTML = `
+    <div class="feedback-summary"><span class="feedback-score">${passed} / ${checks.length}</span><strong>${label}</strong></div>
+    <ul class="feedback-list">${checks.map(check=>`<li class="feedback-item ${check.pass?'pass':'improve'}"><i class="bi ${check.pass?'bi-check-circle-fill':'bi-arrow-up-circle-fill'}"></i><span>${check.pass?check.passText:check.improveText}</span></li>`).join('')}</ul>
+    <div class="feedback-note">Private browser check: this evaluates answer structure and specificity, not factual accuracy. Your text is not uploaded or saved.</div>`;
+  panel.classList.add('open');
 }
 
 /* =========================================================
