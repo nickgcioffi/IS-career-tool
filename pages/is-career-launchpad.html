@@ -496,15 +496,15 @@
 <main>
 
   <nav class="modules" aria-label="Launchpad tools">
-    <button class="mode-btn active" data-mode="explore"><i class="bi bi-compass me-2"></i>Explore careers</button>
+    <button class="mode-btn active" data-mode="explore"><i class="bi bi-compass me-2"></i>Career summaries</button>
     <button class="mode-btn" data-mode="interview"><i class="bi bi-chat-square-text me-2"></i>Interview prep</button>
   </nav>
 
-  <!-- ============ EXPLORE VIEW ============ -->
+  <!-- ============ CAREER SUMMARIES VIEW ============ -->
   <section id="view-explore" class="view active">
     <div class="explore-layout">
       <div class="directory">
-        <div class="directory-label">Four IS career paths</div>
+        <div class="directory-label">Four career summaries</div>
         <div id="directory-list"></div>
       </div>
       <div class="dossier" id="dossier"></div>
@@ -735,10 +735,15 @@ const EXPLORE_CAREERS = [
       'Be able to deploy and explain a small secure cloud application',
       'Show hands-on evidence through a lab, project, homelab, or foundational certification'
     ],
-    strongCandidate: [
-      'Troubleshoots methodically and communicates technical problems clearly',
-      'Can explain architecture and cost tradeoffs instead of only following tutorials',
-      'Documents a real deployment with diagrams, security decisions, and lessons learned'
+    whatToExpect: [
+      'Behavioral questions about troubleshooting an unfamiliar failure or improving a repetitive process',
+      'Technical scenarios that ask you to work through an outage, infrastructure as code, networking, IAM, or baseline security',
+      'Follow-up questions about why you chose each step and how you verified or documented the result'
+    ],
+    recruiterLookFor: [
+      'A calm sequence: establish scope, check logs and dependencies, isolate the cause, then verify the fix',
+      'Concrete cloud vocabulary paired with reasoning—not a memorized list of AWS, Azure, or GCP services',
+      'Clear personal ownership, an observable result, and awareness of reliability, security, cost, and tradeoffs'
     ],
     comp: {entry:{min:60,max:110}, mid:{min:100,max:155}, senior:{min:150,max:200}},
     growth: 'Students often enter through cloud support, systems, implementation, or junior engineering roles, then progress toward platform engineering, cloud security, site reliability, or architecture.',
@@ -761,10 +766,15 @@ const EXPLORE_CAREERS = [
       'Understand metrics, APIs, and technical debt well enough to work with engineers',
       'Demonstrate that you have helped build, test, or improve something for real users'
     ],
-    strongCandidate: [
-      'Starts with the user problem instead of immediately proposing a feature',
-      'Communicates decisions clearly and influences teammates without formal authority',
-      'Tests assumptions with the smallest useful experiment when information is limited'
+    whatToExpect: [
+      'Behavioral questions about disagreement, influence without authority, and learning from something you helped ship',
+      'Product-sense questions about users, feature prioritization, success metrics, and testing assumptions',
+      'Open-ended cases where the interviewer evaluates your reasoning more than one “correct” answer'
+    ],
+    recruiterLookFor: [
+      'A clear user problem before a proposed solution, supported by relevant evidence or metrics',
+      'Explicit prioritization and tradeoff reasoning using a framework such as RICE or MoSCoW',
+      'Personal ownership, collaborative communication, and a measurable outcome or lesson'
     ],
     comp: {entry:{min:77,max:108}, mid:{min:101,max:158}, senior:{min:150,max:250}},
     growth: 'A common structured entry point is Associate Product Manager, followed by Product Manager, Senior PM, and eventually Group PM or Director roles.',
@@ -787,10 +797,15 @@ const EXPLORE_CAREERS = [
       'Practice with logs, labs, vulnerability tools, or capture-the-flag exercises',
       'Use coursework, projects, internships, or certifications to demonstrate practical knowledge'
     ],
-    strongCandidate: [
-      'Combines curiosity and attention to detail with a calm investigative process',
-      'Can explain technical risk clearly to nontechnical stakeholders',
-      'Continues learning and can show hands-on evidence rather than vocabulary alone'
+    whatToExpect: [
+      'Behavioral questions about explaining risk, staying current, and responding carefully under pressure',
+      'Technical questions about networking, the CIA triad, vulnerabilities, logs, access, and incident response',
+      'Incident scenarios where you must investigate in sequence, contain risk, document evidence, and escalate appropriately'
+    ],
+    recruiterLookFor: [
+      'A methodical process that checks evidence before assuming an alert is a confirmed incident',
+      'Correct security vocabulary translated into language a nontechnical stakeholder can understand',
+      'Individual ownership, sound risk judgment, verification, documentation, and respect for the response playbook'
     ],
     comp: {entry:{min:55,max:85}, mid:{min:95,max:135}, senior:{min:130,max:160}},
     growth: 'Entry-level analysts can advance into cloud security, engineering, penetration testing, consulting, incident response, architecture, or leadership.',
@@ -813,10 +828,15 @@ const EXPLORE_CAREERS = [
       'Understand basic statistics and communicate without overstating what data proves',
       'Show a portfolio project that moves from a business question to a clear recommendation'
     ],
-    strongCandidate: [
-      'Begins with the decision or business question rather than the available dataset',
-      'Explains the path from raw data to conclusion and catches analytical mistakes',
-      'Balances technical ability with clear visual and verbal communication'
+    whatToExpect: [
+      'Behavioral questions about finding an error, communicating an inconvenient result, or working with a stakeholder',
+      'Practical SQL and analytical questions involving joins, missing data, metric changes, and data quality',
+      'Follow-ups asking how you validated the data, chose a method, and connected the result to a decision'
+    ],
+    recruiterLookFor: [
+      'A business question first, followed by a clear analytical sequence and relevant SQL or visualization concepts',
+      'Reasoning about assumptions, data quality, correlation, tradeoffs, and how the result was verified',
+      'Personal ownership and an outcome stated in decision-ready language rather than technical jargon alone'
     ],
     comp: {entry:{min:55,max:75}, mid:{min:75,max:100}, senior:{min:100,max:140}},
     growth: 'Analysts can grow into senior and lead roles or specialize in business intelligence, product analytics, analytics engineering, or data science.',
@@ -1013,6 +1033,16 @@ function renderDossier(){
     </div>
 
     <div class="section">
+      <h3>What to expect</h3>
+      <ul>${c.whatToExpect.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </div>
+
+    <div class="section">
+      <h3>What recruiters look for</h3>
+      <ul>${c.recruiterLookFor.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </div>
+
+    <div class="section">
       <h3>Compensation &amp; growth (2026 U.S. composite)</h3>
       <div class="comp-row">
         <div class="comp-label">Entry-level</div>
@@ -1030,11 +1060,6 @@ function renderDossier(){
         <div class="comp-range">$${c.comp.senior.min}K \u2013 $${c.comp.senior.max}K+</div>
       </div>
       <div class="growth-note">${c.growth}</div>
-    </div>
-
-    <div class="section">
-      <h3>What makes a strong candidate</h3>
-      <ul>${c.strongCandidate.map(x=>`<li>${x}</li>`).join('')}</ul>
     </div>
 
     <div class="sources-note"><strong>Sources:</strong> ${c.sources}</div>
@@ -1105,7 +1130,7 @@ function renderDeck(){
     btn.addEventListener('click', ()=>{
       const index = Number(btn.dataset.idx);
       const answer = document.querySelector(`#question-deck textarea[data-idx="${index}"]`).value;
-      renderBrowserFeedback(answer, qs[index].type, activeRole, document.querySelector(`.feedback-panel[data-idx="${index}"]`));
+      renderBrowserFeedback(answer, qs[index], activeRole, document.querySelector(`.feedback-panel[data-idx="${index}"]`));
     });
   });
   document.querySelectorAll('.reveal-btn').forEach(btn=>{
@@ -1119,7 +1144,7 @@ function renderDeck(){
   updateProgress();
 }
 
-function renderBrowserFeedback(answer, type, role, panel){
+function renderBrowserFeedback(answer, question, role, panel){
   const text = answer.trim();
   const words = text ? text.split(/\s+/).length : 0;
   if(!text){
@@ -1137,21 +1162,29 @@ function renderBrowserFeedback(answer, type, role, panel){
   };
 
   const common = [
-    {pass:words >= 45, passText:`Enough detail to evaluate (${words} words)`, improveText:`Add more detail—the response is only ${words} words`},
-    {pass:has(/\bI\b|\bmy\b/i), passText:'Shows your individual ownership', improveText:'Clarify what you personally did, not only what the team did'}
+    {pass:words >= 45, passText:`Enough detail to evaluate (${words} words)`, improveText:`Add more detail—the response is only ${words} words`}
   ];
   const behavioral = [
+    {pass:has(/\bI\b|\bmy\b/i), passText:'Shows your individual ownership', improveText:'Clarify what you personally did, not only what the team did'},
     {pass:has(/when|during|project|class|intern|team|situation|problem/i), passText:'Establishes a specific situation', improveText:'Open with a specific situation and the challenge you faced'},
-    {pass:has(/\bI\s+(built|created|changed|asked|tested|analyzed|organized|implemented|decided|designed|fixed|led|used|worked)/i), passText:'Describes a concrete action you took', improveText:'Name the concrete action you took and why'},
-    {pass:has(/result|outcome|learned|improved|reduced|increased|finished|shipped|resolved|%|\$|\b\d+\b/i), passText:'Includes a result, measurement, or lesson', improveText:'End with the result, a measurement, or what you learned'}
+    {pass:has(/\bI\s+(built|created|changed|asked|tested|analyzed|organized|implemented|decided|designed|fixed|led|used|worked|confirmed|corrected|moved|added|checked|followed|identified|explained|presented|documented)/i), passText:'Describes a concrete action you took', improveText:'Name the concrete action you took and why'},
+    {pass:has(/result|outcome|learned|improved|reduced|increased|finished|shipped|resolved|agreed|understood|became|paid off|%|\$|\b\d+\b/i), passText:'Includes a result, measurement, or lesson', improveText:'End with the result, a measurement, or what you learned'}
   ];
-  const technical = [
-    {pass:has(/first|then|next|after|finally|start|step/i), passText:'Uses a clear sequence or diagnostic process', improveText:'Organize the response into a clear sequence of steps'},
-    {pass:has(/because|so that|therefore|which means|trade-?off|rather than|in order to/i), passText:'Explains reasoning or a tradeoff', improveText:'Explain why you chose the approach or what tradeoff it makes'},
+  const scenarioTechnical = [
+    {pass:has(/first|then|next|after|finally|start|step|once|before/i), passText:'Uses a clear sequence or diagnostic process', improveText:'Organize the response into a clear sequence of steps'},
+    {pass:has(/because|since|so that|therefore|which means|trade-?off|rather than|in order to|depending/i), passText:'Explains reasoning or a tradeoff', improveText:'Explain why you chose the approach or what tradeoff it makes'},
     {pass:roleTerms[role].test(text), passText:'Uses concrete, path-relevant concepts', improveText:'Name a relevant tool, system, metric, or technical concept'},
-    {pass:has(/test|check|verify|validate|monitor|measure|log|rollback|document/i), passText:'Includes verification, measurement, or follow-through', improveText:'Explain how you would verify the result or follow through'}
+    {pass:has(/test|check|verify|validate|monitor|measure|log|rollback|document|assumption|baseline|compare|comparison|review|feedback/i), passText:'Includes verification, measurement, or follow-through', improveText:'Explain how you would verify the result or follow through'}
   ];
-  const checks = common.concat(type === 'behavioral' ? behavioral : technical);
+  const conceptualTechnical = [
+    {pass:has(/\bis\b|means|refers to|works by|for example|such as|useful for/i), passText:'Explains the concept instead of only naming it', improveText:'Define the concept in plain language'},
+    {pass:has(/because|since|so that|therefore|which means|benefit|useful|matters|why/i), passText:'Explains why the concept matters', improveText:'Explain why the concept matters in practice'},
+    {pass:roleTerms[role].test(text), passText:'Uses concrete, path-relevant concepts', improveText:'Add a relevant tool, system, metric, or technical example'},
+    {pass:has(/but|however|still|depends|trade-?off|risk|requires|limitation|alternative/i), passText:'Acknowledges a tradeoff, limitation, or alternative', improveText:'Mention a tradeoff, limitation, or alternative approach'}
+  ];
+  const isScenario = question.type === 'behavioral' || /how would|walk me|you get|suddenly|estimate|tell me|describe/i.test(question.q);
+  const technical = isScenario ? scenarioTechnical : conceptualTechnical;
+  const checks = common.concat(question.type === 'behavioral' ? behavioral : technical);
   const passed = checks.filter(check=>check.pass).length;
   const label = passed === checks.length ? 'Strong structure' : passed >= checks.length - 1 ? 'Nearly there' : passed >= Math.ceil(checks.length / 2) ? 'Good foundation' : 'Needs more development';
   panel.innerHTML = `
