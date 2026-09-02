@@ -1,423 +1,1353 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Cyber Security Career Guide" />
-        <meta name="author" content="Section 03-01" />
-        <title>Cyber Security - Career Guide</title>
 
-        <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Cybersecurity careers and career paths" />
+    <meta name="author" content="" />
 
-        <!-- Bootstrap icons -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
-            rel="stylesheet"
-        />
+    <title>Cyber Security - Career Paths</title>
 
-        <!-- Google fonts -->
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap"
-            rel="stylesheet"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&display=swap"
-            rel="stylesheet"
-        />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
 
-        <!-- Core theme CSS -->
-        <link href="../css/styles.css" rel="stylesheet" />
-    </head>
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet" />
 
-    <body id="page-top">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&family=Mulish:wght@400;600;700&display=swap"
+        rel="stylesheet" />
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
-            <div class="container px-5">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet" />
 
-                <a class="navbar-brand fw-bold" href="../index.html">
-                    Cyber Security
-                </a>
+    <!-- Main CSS -->
+    <link href="../css/styles.css" rel="stylesheet" />
 
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarResponsive"
-                    aria-controls="navbarResponsive"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    Menu
-                    <i class="bi-list"></i>
-                </button>
+    <!-- Cybersecurity Page CSS -->
+    <style>
 
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
+        /* =========================================
+           GENERAL COLORS
+        ========================================= */
 
-                        <li class="nav-item">
-                            <a class="nav-link me-lg-3" href="cloud.html">
-                                Cloud Infrastructure
-                            </a>
-                        </li>
+        :root {
+            --cyber-blue: #0d6efd;
+            --cyber-dark: #0b1f3a;
+            --cyber-purple: #6f42c1;
+            --cyber-teal: #20c997;
+            --cyber-pink: #d63384;
+            --cyber-light-blue: #eaf4ff;
+            --cyber-light-purple: #f3edff;
+            --cyber-light-teal: #e8fff8;
+            --cyber-gray: #f5f7fa;
+        }
 
-                        <li class="nav-item">
-                            <a class="nav-link me-lg-3" href="product.html">
-                                Product Management
-                            </a>
-                        </li>
+        body {
+            font-family: 'Mulish', sans-serif;
+            background-color: white;
+            color: #344054;
+        }
 
-                        <li class="nav-item">
-                            <a class="nav-link me-lg-3" href="cyber.html">
-                                Cyber Security
-                            </a>
-                        </li>
+        h1,
+        h2,
+        h3 {
+            font-weight: 700;
+        }
 
-                        <li class="nav-item">
-                            <a class="nav-link me-lg-3" href="data.html">
-                                Data Analytics
-                            </a>
-                        </li>
 
-                    </ul>
-                </div>
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        .navbar {
+            background-color: white !important;
+            border-bottom: 4px solid var(--cyber-blue);
+        }
+
+        .navbar-brand {
+            color: var(--cyber-dark) !important;
+            font-weight: 700;
+        }
+
+        .nav-link {
+            color: var(--cyber-dark) !important;
+            font-weight: 600;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--cyber-blue) !important;
+        }
+
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
+
+        .cyber-hero {
+            background: linear-gradient(
+                135deg,
+                #eaf4ff 0%,
+                #f3edff 50%,
+                #e8fff8 100%
+            );
+            padding: 100px 0;
+            border-bottom: 8px solid var(--cyber-purple);
+        }
+
+        .cyber-hero h1 {
+            color: var(--cyber-dark);
+            font-size: 3.5rem;
+        }
+
+        .cyber-hero p {
+            color: #40566f;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .hero-icon {
+            color: var(--cyber-blue);
+            font-size: 9rem;
+            text-shadow: 0 10px 25px rgba(13, 110, 253, 0.2);
+        }
+
+        .hero-security-box {
+            background-color: white;
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 15px 40px rgba(11, 31, 58, 0.12);
+        }
+
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .btn-primary {
+            background-color: var(--cyber-blue);
+            border-color: var(--cyber-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: #084298;
+            border-color: #084298;
+        }
+
+        .btn-purple {
+            background-color: var(--cyber-purple);
+            border-color: var(--cyber-purple);
+            color: white;
+        }
+
+        .btn-purple:hover {
+            background-color: #59339d;
+            color: white;
+        }
+
+
+        /* =========================================
+           QUOTE SECTION
+        ========================================= */
+
+        .quote-section {
+            background-color: var(--cyber-dark);
+            color: white;
+            padding: 70px 0;
+        }
+
+        .quote-section .quote-icon {
+            color: var(--cyber-teal);
+            font-size: 3rem;
+        }
+
+        .quote-section .quote-text {
+            font-family: 'Newsreader', serif;
+            font-size: 2rem;
+        }
+
+
+        /* =========================================
+           SECTION HEADERS
+        ========================================= */
+
+        .section-title {
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            color: var(--cyber-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+        }
+
+        .section-title h2 {
+            color: var(--cyber-dark);
+            font-size: 2.5rem;
+        }
+
+        .section-title p {
+            color: #667085;
+        }
+
+
+        /* =========================================
+           CAREER SECTION
+        ========================================= */
+
+        .career-section {
+            background-color: white;
+            padding: 100px 0;
+        }
+
+        .career-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 35px;
+            height: 100%;
+            border-top: 6px solid var(--cyber-blue);
+            box-shadow: 0 8px 30px rgba(11, 31, 58, 0.08);
+            transition: all 0.25s ease;
+        }
+
+        .career-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(13, 110, 253, 0.15);
+        }
+
+        .career-card .icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            background-color: var(--cyber-light-blue);
+            color: var(--cyber-blue);
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .career-card h3 {
+            color: var(--cyber-dark);
+        }
+
+        .career-card p {
+            line-height: 1.8;
+        }
+
+
+        /* =========================================
+           TECHNICAL SKILLS
+        ========================================= */
+
+        .skills-section {
+            background: linear-gradient(
+                135deg,
+                var(--cyber-light-purple),
+                #ffffff
+            );
+            padding: 100px 0;
+            border-top: 8px solid var(--cyber-purple);
+            border-bottom: 8px solid var(--cyber-purple);
+        }
+
+        .skills-box {
+            background-color: white;
+            border-radius: 25px;
+            padding: 45px;
+            box-shadow: 0 10px 35px rgba(111, 66, 193, 0.12);
+        }
+
+        .skill-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skill-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list i {
+            color: var(--cyber-purple);
+            margin-right: 10px;
+        }
+
+        .tools-box {
+            background: linear-gradient(
+                135deg,
+                var(--cyber-purple),
+                #8e63d2
+            );
+            color: white;
+            border-radius: 25px;
+            padding: 45px;
+            height: 100%;
+        }
+
+        .tools-box h3 {
+            color: white;
+        }
+
+        .tools-box i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================================
+           ENTRY LEVEL
+        ========================================= */
+
+        .entry-section {
+            background-color: var(--cyber-gray);
+            padding: 100px 0;
+        }
+
+        .entry-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+        }
+
+        .entry-icon {
+            color: var(--cyber-teal);
+            font-size: 5rem;
+        }
+
+        .check-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .check-list li {
+            margin-bottom: 15px;
+        }
+
+        .check-list i {
+            color: var(--cyber-teal);
+            margin-right: 10px;
+        }
+
+
+        /* =========================================
+           SALARY SECTION
+        ========================================= */
+
+        .salary-section {
+            background: linear-gradient(
+                135deg,
+                #eaf4ff,
+                #f3edff,
+                #e8fff8
+            );
+            padding: 100px 0;
+            border-top: 8px solid var(--cyber-teal);
+            border-bottom: 8px solid var(--cyber-teal);
+        }
+
+        .salary-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 35px 25px;
+            height: 100%;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.25s ease;
+        }
+
+        .salary-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 40px rgba(13, 110, 253, 0.18);
+        }
+
+        .salary-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .salary-card h3 {
+            color: var(--cyber-dark);
+        }
+
+        .salary {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--cyber-blue);
+        }
+
+        .salary-card:nth-child(2) .salary {
+            color: var(--cyber-teal);
+        }
+
+        .salary-card:nth-child(3) .salary {
+            color: var(--cyber-purple);
+        }
+
+        .salary-card:nth-child(4) .salary {
+            color: var(--cyber-pink);
+        }
+
+        .salary-card:nth-child(1) .salary-icon {
+            color: var(--cyber-blue);
+        }
+
+        .salary-card:nth-child(2) .salary-icon {
+            color: var(--cyber-teal);
+        }
+
+        .salary-card:nth-child(3) .salary-icon {
+            color: var(--cyber-purple);
+        }
+
+        .salary-card:nth-child(4) .salary-icon {
+            color: var(--cyber-pink);
+        }
+
+
+        /* =========================================
+           STRONG CANDIDATE
+        ========================================= */
+
+        .candidate-section {
+            background-color: white;
+            padding: 100px 0;
+        }
+
+        .candidate-box {
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                var(--cyber-light-blue)
+            );
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 10px 35px rgba(13, 110, 253, 0.1);
+        }
+
+        .candidate-icon {
+            color: var(--cyber-blue);
+            font-size: 6rem;
+        }
+
+        .candidate-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .candidate-list li {
+            padding: 12px 0;
+        }
+
+        .candidate-list i {
+            color: var(--cyber-purple);
+            margin-right: 10px;
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cyber-cta {
+            background: linear-gradient(
+                135deg,
+                #0b1f3a,
+                #32145f,
+                #064e4e
+            );
+            color: white;
+            padding: 100px 0;
+        }
+
+        .cyber-cta h2 {
+            color: white;
+            font-size: 2.8rem;
+        }
+
+        .cyber-cta p {
+            color: #dbe7f5;
+            font-size: 1.1rem;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            border-top: 4px solid var(--cyber-teal);
+        }
+
+        footer a {
+            color: var(--cyber-blue);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--cyber-purple);
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 991px) {
+
+            .cyber-hero {
+                padding: 70px 0;
+            }
+
+            .cyber-hero h1 {
+                font-size: 2.7rem;
+            }
+
+            .hero-security-box {
+                margin-top: 40px;
+            }
+
+            .career-section,
+            .skills-section,
+            .entry-section,
+            .salary-section,
+            .candidate-section,
+            .cyber-cta {
+                padding: 70px 0;
+            }
+
+            .salary-card {
+                margin-bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+        <div class="container px-5">
+
+            <a class="navbar-brand" href="../index.html">
+                Career Paths
+            </a>
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse"
+                id="navbarSupportedContent">
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3"
+                            href="cloud.html">
+                            Cloud Computing
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3"
+                            href="product.html">
+                            Product Management
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3 active"
+                            href="cyber.html">
+                            Cyber Security
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link me-lg-3"
+                            href="data.html">
+                            Data
+                        </a>
+                    </li>
+
+                </ul>
+
             </div>
-        </nav>
+        </div>
+    </nav>
 
 
-        <!-- Cyber Security Hero Section -->
-        <header class="masthead">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
+    <!-- =========================================
+         HERO
+    ========================================= -->
 
-                    <div class="col-lg-6">
-                        <div class="mb-5 mb-lg-0 text-center text-lg-start">
+    <header class="cyber-hero">
 
-                            <h1 class="display-1 lh-1 mb-3">
-                                Build a Career in Cyber Security.
-                            </h1>
+        <div class="container px-5">
 
-                            <p class="lead fw-normal text-muted mb-5">
-                                Protect systems, networks, applications, and data from
-                                cyber threats while developing valuable technical skills
-                                for a growing technology career.
-                            </p>
+            <div class="row gx-5 align-items-center">
 
-                            <a
-                                class="btn btn-primary rounded-pill px-4 py-3"
-                                href="#career"
-                            >
-                                Explore the Career
-                            </a>
+                <div class="col-lg-7">
 
-                        </div>
-                    </div>
+                    <div class="my-5">
 
-                    <div class="col-lg-6">
-                        <div class="text-center">
-                            <i class="bi-shield-lock icon-feature text-gradient"
-                               style="font-size: 12rem;">
-                            </i>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </header>
-
-
-        <!-- Introduction -->
-        <aside class="text-center bg-gradient-primary-to-secondary">
-            <div class="container px-5">
-                <div class="row gx-5 justify-content-center">
-
-                    <div class="col-xl-8">
-
-                        <div class="h2 fs-1 text-white mb-4">
-                            "Cyber security is about protecting people,
-                            systems, and information in an increasingly
-                            connected world."
+                        <div class="section-label mb-3">
+                            Technology Career Path
                         </div>
 
-                    </div>
+                        <h1 class="display-5 fw-bolder mb-4">
+                            Cyber Security
+                        </h1>
 
-                </div>
-            </div>
-        </aside>
-
-
-        <!-- Career Information -->
-        <section id="career">
-            <div class="container px-5">
-
-                <div class="row gx-5 align-items-center">
-
-                    <div class="col-lg-8 order-lg-1">
-
-                        <div class="container-fluid px-5">
-
-                            <!-- Section 1 -->
-                            <div class="row gx-5 mb-5">
-
-                                <div class="col-md-6 mb-5">
-                                    <div class="text-center">
-
-                                        <i class="bi-clock-history icon-feature text-gradient d-block mb-3"></i>
-
-                                        <h3 class="font-alt">
-                                            Day-to-Day Work
-                                        </h3>
-
-                                        <p class="text-muted mb-0">
-                                            Cyber security professionals monitor systems,
-                                            investigate suspicious activity, respond to
-                                            security incidents, identify vulnerabilities,
-                                            and help organizations protect their data.
-                                        </p>
-
-                                    </div>
-                                </div>
-
-
-                                <!-- Section 2 -->
-                                <div class="col-md-6 mb-5">
-                                    <div class="text-center">
-
-                                        <i class="bi-tools icon-feature text-gradient d-block mb-3"></i>
-
-                                        <h3 class="font-alt">
-                                            Technical Skills & Tools
-                                        </h3>
-
-                                        <p class="text-muted mb-0">
-                                            Common skills include networking, Linux,
-                                            Windows administration, scripting, cloud
-                                            security, vulnerability assessment, and
-                                            security monitoring. Tools may include
-                                            SIEM platforms, Wireshark, Nmap, and
-                                            vulnerability scanners.
-                                        </p>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                            <!-- Section 3 -->
-                            <div class="row gx-5 mb-5">
-
-                                <div class="col-md-6 mb-5">
-                                    <div class="text-center">
-
-                                        <i class="bi-mortarboard icon-feature text-gradient d-block mb-3"></i>
-
-                                        <h3 class="font-alt">
-                                            Entry-Level Expectations
-                                        </h3>
-
-                                        <p class="text-muted mb-0">
-                                            Interns and entry-level candidates should
-                                            understand basic networking, operating
-                                            systems, security concepts, and common
-                                            cyber threats. Hands-on labs, projects,
-                                            coursework, and certifications can help
-                                            demonstrate practical knowledge.
-                                        </p>
-
-                                    </div>
-                                </div>
-
-
-                                <!-- Section 4 -->
-                                <div class="col-md-6 mb-5">
-                                    <div class="text-center">
-
-                                        <i class="bi-graph-up-arrow icon-feature text-gradient d-block mb-3"></i>
-
-                                        <h3 class="font-alt">
-                                            Salary & Career Growth
-                                        </h3>
-
-                                        <p class="text-muted mb-0">
-                                            Entry-level cyber security positions can
-                                            provide a strong starting salary, with
-                                            opportunities to advance into specialized
-                                            security, engineering, consulting, and
-                                            leadership positions as experience grows.
-
-                                            Entry-Level: $60,000 to $80,000 per year for junior roles like SOC analysts or support positions
-                                            Mid-Level: $90,000 to $120,000 per year with 3 to 5 years of experience.
-                                            Senior / Management: $120,000 to $170,000+ per year for security engineers, managers, and architects
-                                            Executive (CISO): $175,000 to $400,000+ per year for Chief Information Security Officers, depending on company size.
-
-                                            
-                                        </p>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                            <!-- Section 5 -->
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="text-center">
-
-                                        <i class="bi-person-check icon-feature text-gradient d-block mb-3"></i>
-
-                                        <h3 class="font-alt">
-                                            What Makes a Strong Candidate?
-                                        </h3>
-
-                                        <p class="text-muted mb-0">
-                                            Strong candidates combine technical ability
-                                            with curiosity, problem-solving skills,
-                                            attention to detail, communication, and a
-                                            willingness to keep learning. Employers
-                                            value candidates who can demonstrate what
-                                            they know through projects, labs, internships,
-                                            certifications, or other hands-on experience.
-                                        </p>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <!-- Cyber Security Visual -->
-                    <div class="col-lg-4 order-lg-0">
-
-                        <div class="text-center">
-                            <i class="bi-shield-check text-gradient"
-                               style="font-size: 15rem;">
-                            </i>
-
-                            <h2 class="display-5 lh-1 mt-4">
-                                Protect.
-                                <br />
-                                Detect.
-                                <br />
-                                Respond.
-                            </h2>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Skills Section -->
-        <section class="bg-light">
-            <div class="container px-5">
-
-                <div class="row gx-5 align-items-center justify-content-center">
-
-                    <div class="col-lg-6">
-
-                        <h2 class="display-5 lh-1 mb-4">
-                            Start Building Your Skills
-                        </h2>
-
-                        <p class="lead fw-normal text-muted mb-4">
-                            A strong foundation in networking, operating systems,
-                            security principles, and problem solving can help prepare
-                            you for an entry-level cyber security position.
+                        <p class="lead mb-4">
+                            Cybersecurity professionals protect organizations,
+                            systems, networks, and information from cyber
+                            threats. This field offers a variety of career
+                            opportunities ranging from entry-level security
+                            analysts to executive leadership positions.
                         </p>
 
-                        <ul class="lead text-muted">
+                        <div class="d-grid gap-3 d-sm-flex">
 
-                            <li>Networking fundamentals</li>
-                            <li>Linux and Windows administration</li>
-                            <li>Cyber security fundamentals</li>
-                            <li>Python or scripting basics</li>
-                            <li>Threat and vulnerability analysis</li>
-                            <li>Cloud security fundamentals</li>
+                            <a class="btn btn-primary btn-lg px-4"
+                                href="#careers">
+                                Explore Careers
+                            </a>
+
+                            <a class="btn btn-purple btn-lg px-4"
+                                href="#salary">
+                                View Salaries
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-5">
+
+                    <div class="hero-security-box text-center">
+
+                        <i class="bi bi-shield-lock hero-icon"></i>
+
+                        <h2 class="fw-bold mt-3">
+                            Protect. Detect. Respond.
+                        </h2>
+
+                        <p class="text-muted">
+                            Cybersecurity professionals help protect
+                            digital systems, information, and organizations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         QUOTE
+    ========================================= -->
+
+    <section class="quote-section">
+
+        <div class="container px-5">
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-9 text-center">
+
+                    <i class="bi bi-quote quote-icon"></i>
+
+                    <p class="quote-text mt-3">
+                        "Cybersecurity is not just about technology.
+                        It is about protecting people, information,
+                        and organizations."
+                    </p>
+
+                    <p class="fw-bold mb-0">
+                        Cybersecurity Career Overview
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         DAY-TO-DAY
+    ========================================= -->
+
+    <section class="career-section" id="careers">
+
+        <div class="container px-5">
+
+            <div class="section-title text-center">
+
+                <div class="section-label">
+                    Career Responsibilities
+                </div>
+
+                <h2 class="fw-bolder mt-2">
+                    What Does a Cybersecurity Professional Do?
+                </h2>
+
+                <p class="lead">
+                    A typical day involves protecting systems,
+                    investigating threats, and preventing attacks.
+                </p>
+
+            </div>
+
+
+            <div class="row gx-5">
+
+                <div class="col-lg-4 mb-4">
+
+                    <div class="career-card">
+
+                        <div class="icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+
+                        <h3 class="h4">
+                            Monitor & Investigate
+                        </h3>
+
+                        <p>
+                            Professionals monitor systems for suspicious
+                            activity, review security alerts, analyze logs,
+                            and investigate possible security incidents.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 mb-4">
+
+                    <div class="career-card">
+
+                        <div class="icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+
+                        <h3 class="h4">
+                            Protect Systems
+                        </h3>
+
+                        <p>
+                            Cybersecurity teams identify vulnerabilities,
+                            strengthen security controls, protect networks,
+                            and help prevent unauthorized access.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 mb-4">
+
+                    <div class="career-card">
+
+                        <div class="icon">
+                            <i class="bi bi-exclamation-triangle"></i>
+                        </div>
+
+                        <h3 class="h4">
+                            Respond to Threats
+                        </h3>
+
+                        <p>
+                            When an incident occurs, cybersecurity
+                            professionals help contain the threat,
+                            investigate what happened, and improve
+                            defenses against future attacks.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         TECHNICAL SKILLS
+    ========================================= -->
+
+    <section class="skills-section" id="skills">
+
+        <div class="container px-5">
+
+            <div class="section-title text-center">
+
+                <div class="section-label">
+                    Technical Knowledge
+                </div>
+
+                <h2 class="fw-bolder mt-2">
+                    Skills & Tools
+                </h2>
+
+                <p class="lead">
+                    Cybersecurity requires technical knowledge,
+                    problem-solving ability, and attention to detail.
+                </p>
+
+            </div>
+
+
+            <div class="row gx-5 align-items-stretch">
+
+                <div class="col-lg-7 mb-4">
+
+                    <div class="skills-box">
+
+                        <h3 class="h4 mb-4">
+                            Important Technical Skills
+                        </h3>
+
+                        <ul class="skill-list">
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Networking fundamentals
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Windows and Linux operating systems
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Security monitoring and threat detection
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Basic scripting and programming
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Vulnerability management
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Incident response
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Cloud security fundamentals
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Cybersecurity frameworks
+                            </li>
 
                         </ul>
 
                     </div>
 
                 </div>
+
+
+                <div class="col-lg-5 mb-4">
+
+                    <div class="tools-box text-center">
+
+                        <i class="bi bi-tools"></i>
+
+                        <h3 class="h4">
+                            Common Security Tools
+                        </h3>
+
+                        <p>
+                            Cybersecurity professionals may work with
+                            SIEM platforms, vulnerability scanners,
+                            endpoint security tools, network analysis
+                            tools, and command-line utilities.
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
-        </section>
+
+        </div>
+
+    </section>
 
 
-        <!-- Call to Action -->
-        <section class="cta">
+    <!-- =========================================
+         ENTRY LEVEL
+    ========================================= -->
 
-            <div class="cta-content">
+    <section class="entry-section">
 
-                <div class="container px-5">
+        <div class="container px-5">
 
-                    <h2 class="text-white display-1 lh-1 mb-4">
-                        Protect the future.
-                        <br />
-                        Start learning.
+            <div class="section-title text-center">
+
+                <div class="section-label">
+                    Getting Started
+                </div>
+
+                <h2 class="fw-bolder mt-2">
+                    Entry-Level & Internship Expectations
+                </h2>
+
+                <p class="lead">
+                    You do not need to know everything before starting.
+                    A strong foundation and willingness to learn matter.
+                </p>
+
+            </div>
+
+
+            <div class="entry-card">
+
+                <div class="row gx-5 align-items-center">
+
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+
+                        <i class="bi bi-person-workspace entry-icon"></i>
+
+                        <h3 class="h4 mt-3">
+                            Start Building Experience
+                        </h3>
+
+                    </div>
+
+
+                    <div class="col-lg-8">
+
+                        <p>
+                            Entry-level and internship candidates are not
+                            expected to know everything. Employers typically
+                            look for a strong foundation and a willingness
+                            to learn.
+                        </p>
+
+                        <ul class="check-list">
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Basic networking knowledge
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Understanding of computer systems
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Knowledge of common cybersecurity threats
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Cybersecurity coursework or training
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Personal projects or cybersecurity labs
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Strong communication and problem-solving skills
+                            </li>
+
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                Willingness to continue learning
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SALARY
+    ========================================= -->
+
+    <section class="salary-section" id="salary">
+
+        <div class="container px-5">
+
+            <div class="section-title text-center">
+
+                <div class="section-label">
+                    Career Growth
+                </div>
+
+                <h2 class="fw-bolder mt-2">
+                    Salary & Growth Trajectory
+                </h2>
+
+                <p class="lead">
+                    Cybersecurity careers can provide opportunities for
+                    increasing responsibility and compensation.
+                </p>
+
+            </div>
+
+
+            <div class="row gx-4">
+
+                <!-- ENTRY LEVEL -->
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <div class="salary-card">
+
+                        <i class="bi bi-bar-chart salary-icon"></i>
+
+                        <h3 class="h5">
+                            Entry-Level
+                        </h3>
+
+                        <p class="salary">
+                            $60,000–$80,000
+                        </p>
+
+                        <p class="text-muted">
+                            Per year for junior roles like SOC analysts
+                            or support positions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MID LEVEL -->
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <div class="salary-card">
+
+                        <i class="bi bi-graph-up-arrow salary-icon"></i>
+
+                        <h3 class="h5">
+                            Mid-Level
+                        </h3>
+
+                        <p class="salary">
+                            $90,000–$120,000
+                        </p>
+
+                        <p class="text-muted">
+                            Per year with approximately 3 to 5 years
+                            of experience.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SENIOR -->
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <div class="salary-card">
+
+                        <i class="bi bi-shield-check salary-icon"></i>
+
+                        <h3 class="h5">
+                            Senior / Management
+                        </h3>
+
+                        <p class="salary">
+                            $120,000–$170,000+
+                        </p>
+
+                        <p class="text-muted">
+                            Security engineers, managers, and
+                            security architects.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXECUTIVE -->
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <div class="salary-card">
+
+                        <i class="bi bi-person-badge salary-icon"></i>
+
+                        <h3 class="h5">
+                            Executive (CISO)
+                        </h3>
+
+                        <p class="salary">
+                            $175,000–$400,000+
+                        </p>
+
+                        <p class="text-muted">
+                            Chief Information Security Officers,
+                            depending on company size.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         STRONG CANDIDATE
+    ========================================= -->
+
+    <section class="candidate-section">
+
+        <div class="container px-5">
+
+            <div class="section-title text-center">
+
+                <div class="section-label">
+                    Career Success
+                </div>
+
+                <h2 class="fw-bolder mt-2">
+                    What Makes a Strong Candidate?
+                </h2>
+
+                <p class="lead">
+                    Technical ability is important, but cybersecurity
+                    professionals also need strong professional skills.
+                </p>
+
+            </div>
+
+
+            <div class="candidate-box">
+
+                <div class="row gx-5 align-items-center">
+
+                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
+
+                        <i class="bi bi-person-check candidate-icon"></i>
+
+                        <h3 class="h4 mt-3">
+                            Build Your Career
+                        </h3>
+
+                    </div>
+
+
+                    <div class="col-lg-8">
+
+                        <ul class="candidate-list">
+
+                            <li>
+                                <i class="bi bi-star-fill"></i>
+                                Strong problem-solving and analytical skills
+                            </li>
+
+                            <li>
+                                <i class="bi bi-star-fill"></i>
+                                Understanding of networking and computer systems
+                            </li>
+
+                            <li>
+                                <i class="bi bi-star-fill"></i>
+                                Familiarity with cybersecurity concepts and tools
+                            </li>
+
+                            <li>
+                                <i class="bi bi-star-fill"></i>
+                                Ability to communicate technical information clearly
+                            </li>
+
+                            <li>
+                                <i class="bi bi-star-fill"></i>
+                                Attention to detail
+                            </li>
+
+                            <li>
+                                <i class="bi bi-star-fill"></i>
+                                Willingness to continue learning
+                            </li>
+
+                            <li>
+                                <i class="bi bi-star-fill"></i>
+                                Hands-on experience through labs, internships,
+                                projects, or certifications
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CALL TO ACTION
+    ========================================= -->
+
+    <section class="cyber-cta">
+
+        <div class="container px-5">
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-8 text-center">
+
+                    <i class="bi bi-shield-lock display-3 mb-4"></i>
+
+                    <h2 class="fw-bolder">
+                        Interested in Cybersecurity?
                     </h2>
 
-                    <a
-                        class="btn btn-outline-light py-3 px-4 rounded-pill"
-                        href="#career"
-                    >
-                        Explore Cyber Security
+                    <p class="lead mb-4">
+                        Start building your technical skills, gain
+                        hands-on experience, and continue learning
+                        to prepare for a career in cybersecurity.
+                    </p>
+
+                    <a class="btn btn-light btn-lg px-5"
+                        href="#careers">
+                        Explore the Career Path
                     </a>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+    </section>
 
 
-        <!-- Footer -->
-        <footer class="bg-black text-center py-5">
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
 
-            <div class="container px-5">
+    <footer class="bg-white py-4">
 
-                <div class="text-white-50 small">
+        <div class="container px-5">
 
-                    <div class="mb-2">
-                        &copy; Your Website 2026. All Rights Reserved.
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col-auto">
+
+                    <div class="small m-0">
+                        Copyright &copy; Career Paths 2026
                     </div>
 
-                    <a href="#!">Privacy</a>
+                </div>
 
-                    <span class="mx-1">&middot;</span>
 
-                    <a href="#!">Terms</a>
+                <div class="col-auto">
 
-                    <span class="mx-1">&middot;</span>
+                    <a class="small"
+                        href="../index.html">
+                        Home
+                    </a>
 
-                    <a href="#!">FAQ</a>
+                    <span class="mx-1">
+                        &middot;
+                    </span>
+
+                    <a class="small"
+                        href="cyber.html">
+                        Cyber Security
+                    </a>
 
                 </div>
 
             </div>
 
-        </footer>
+        </div>
+
+    </footer>
 
 
-        <!-- Bootstrap core JS -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js">
-        </script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
 
-        <!-- Core theme JS -->
-        <script src="../js/scripts.js"></script>
+    <!-- Your JavaScript -->
+    <script src="../js/scripts.js"></script>
 
-    </body>
+</body>
+
 </html>
