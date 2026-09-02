@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IS Career Launchpad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,500&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A3D;
+    --ink-soft:#3A4A5E;
+    --paper:#F1EFE6;
+    --card:#FFFFFF;
+    --gold:#A97C24;
+    --gold-soft:#E9DCBB;
+    --teal:#3D6B5C;
+    --teal-soft:#DCE8E2;
+    --brick:#8B3A3A;
+    --brick-soft:#F0DEDA;
+    --line:#D6CFBA;
+    --text:#232323;
+    --muted:#6B6455;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Newsreader', Georgia, serif;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+  a{color:var(--ink);}
+  button{font-family:inherit;cursor:pointer;}
+  :focus-visible{outline:3px solid var(--gold); outline-offset:2px;}
+
+  /* ---------- Header ---------- */
+  header.site{
+    background:var(--ink);
+    color:#EDE9DC;
+    padding:26px 32px 22px;
+  }
+  .header-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .wordmark{
+    font-family:'Newsreader', Georgia, serif;
+    font-size:28px;
+    font-weight:600;
+    color:#F7F4EA;
+    letter-spacing:0.2px;
+  }
+  .wordmark em{
+    font-style:italic;
+    color:var(--gold-soft);
+  }
+  .header-sub{
+    font-size:14px;
+    color:#B9C3CF;
+    max-width:420px;
+  }
+
+  nav.modules{
+    max-width:1180px;
+    margin:18px auto 0;
+    display:flex;
+    gap:8px;
+  }
+  .mode-btn{
+    background:transparent;
+    border:1px solid #45566C;
+    color:#D8DEE6;
+    padding:9px 18px;
+    border-radius:3px;
+    font-size:14.5px;
+    font-weight:500;
+    transition:background .15s, color .15s;
+  }
+  .mode-btn.active{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:#22190A;
+    font-weight:600;
+  }
+  .mode-btn:hover:not(.active){
+    background:#2A3B50;
+  }
+
+  main{
+    max-width:1180px;
+    margin:0 auto;
+    padding:30px 32px 80px;
+  }
+
+  .view{display:none;}
+  .view.active{display:block;}
+
+  /* ---------- Explore module ---------- */
+  .explore-layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  .directory{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    position:sticky;
+    top:20px;
+  }
+  .directory-label{
+    font-size:12px;
+    color:var(--muted);
+    padding:14px 16px 8px;
+    border-bottom:1px solid var(--line);
+  }
+  .dir-item{
+    display:block;
+    width:100%;
+    text-align:left;
+    background:transparent;
+    border:none;
+    border-left:3px solid transparent;
+    border-bottom:1px solid var(--line);
+    padding:13px 16px;
+  }
+  .dir-item:last-child{border-bottom:none;}
+  .dir-item .t{
+    font-family:'Newsreader', Georgia, serif;
+    font-size:16.5px;
+    font-weight:600;
+    color:var(--ink);
+    display:block;
+  }
+  .dir-item .d{
+    font-size:12.5px;
+    color:var(--muted);
+    display:block;
+    margin-top:2px;
+  }
+  .dir-item:hover{background:#FAF8F1;}
+  .dir-item.active{
+    background:var(--teal-soft);
+    border-left-color:var(--teal);
+  }
+
+  .dossier{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:32px 36px 26px;
+  }
+  .dossier-head{
+    border-bottom:1px solid var(--line);
+    padding-bottom:16px;
+    margin-bottom:22px;
+  }
+  .dossier-head h2{font-size:28px;}
+  .dossier-head .tagline{
+    color:var(--muted);
+    font-size:15px;
+    margin-top:6px;
+    max-width:640px;
+  }
+  .standalone-link{
+    display:inline-block;
+    margin-top:12px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--teal);
+    text-decoration:none;
+    border-bottom:1px solid var(--teal-soft);
+    padding-bottom:2px;
+  }
+  .standalone-link:hover{border-bottom-color:var(--teal);}
+  .section{margin-bottom:26px;}
+  .section h3{
+    font-size:13px;
+    text-transform:none;
+    color:var(--gold);
+    font-family:'Public Sans', sans-serif;
+    font-weight:700;
+    letter-spacing:.2px;
+    margin-bottom:10px;
+    border-bottom:1px solid var(--gold-soft);
+    padding-bottom:6px;
+  }
+  .section ul{margin:0; padding-left:20px;}
+  .section li{margin-bottom:6px; font-size:14.5px;}
+  .badges{display:flex; flex-wrap:wrap; gap:7px;}
+  .badge{
+    background:var(--teal-soft);
+    color:var(--teal);
+    font-size:12.5px;
+    font-weight:600;
+    padding:5px 11px;
+    border-radius:20px;
+  }
+  .comp-row{display:flex; align-items:center; gap:12px; margin-bottom:11px;}
+  .comp-label{width:120px; font-size:13px; color:var(--muted); flex-shrink:0;}
+  .comp-track{flex:1; background:#EFEBDD; border-radius:3px; height:20px; position:relative; overflow:hidden;}
+  .comp-fill{background:var(--gold); height:100%; border-radius:3px 0 0 3px;}
+  .comp-range{font-size:13px; font-weight:600; color:var(--ink); width:150px; text-align:right; flex-shrink:0;}
+  .growth-note{
+    font-size:14px;
+    margin-top:10px;
+    padding:12px 14px;
+    background:#FBF6EA;
+    border-left:3px solid var(--gold);
+    color:var(--ink-soft);
+  }
+  .sources-note{
+    font-size:12.5px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    margin-top:6px;
+  }
+
+  /* ---------- Interview module ---------- */
+  .role-picker{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:26px;
+  }
+  .role-chip{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:9px 16px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:500;
+    color:var(--ink-soft);
+  }
+  .role-chip.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:#F1EFE6;
+  }
+  .role-chip:hover:not(.active){border-color:var(--gold);}
+
+  .prep-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:6px;
+  }
+  .prep-head h2{font-size:24px;}
+  .progress-pill{
+    font-size:13px;
+    font-weight:600;
+    color:var(--teal);
+    background:var(--teal-soft);
+    padding:5px 12px;
+    border-radius:20px;
+  }
+  .prep-sub{color:var(--muted); font-size:14px; margin-bottom:22px;}
+
+  .qcard{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:22px 24px;
+    margin-bottom:16px;
+  }
+  .qcard-top{display:flex; align-items:flex-start; gap:12px; margin-bottom:12px;}
+  .qtag{
+    flex-shrink:0;
+    font-size:11.5px;
+    font-weight:700;
+    padding:4px 10px;
+    border-radius:3px;
+    margin-top:3px;
+  }
+  .qtag.behavioral{background:var(--brick-soft); color:var(--brick);}
+  .qtag.technical{background:var(--teal-soft); color:var(--teal);}
+  .qtext{
+    font-family:'Newsreader', Georgia, serif;
+    font-size:18px;
+    font-weight:500;
+    color:var(--ink);
+    line-height:1.4;
+  }
+  .qcard textarea{
+    width:100%;
+    min-height:88px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:11px 13px;
+    font-family:inherit;
+    font-size:14px;
+    color:var(--text);
+    background:#FCFBF7;
+    resize:vertical;
+  }
+  .qcard textarea:focus{border-color:var(--gold);}
+  .qcard-actions{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+  }
+  .attempt-status{font-size:12.5px; color:var(--muted);}
+  .reveal-btn{
+    background:var(--ink);
+    color:#F1EFE6;
+    border:none;
+    padding:8px 16px;
+    border-radius:3px;
+    font-size:13.5px;
+    font-weight:600;
+  }
+  .reveal-btn:hover{background:#28394F;}
+  .reveal-panel{
+    display:none;
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px dashed var(--line);
+  }
+  .reveal-panel.open{display:block;}
+  .reveal-panel h4{
+    font-size:12.5px;
+    color:var(--gold);
+    font-family:'Public Sans', sans-serif;
+    font-weight:700;
+    margin-bottom:7px;
+  }
+  .reveal-panel p{font-size:14.5px; margin:0 0 12px; color:var(--ink-soft);}
+  .tip{
+    font-size:13px;
+    color:var(--teal);
+    background:var(--teal-soft);
+    padding:9px 12px;
+    border-radius:3px;
+  }
+
+  footer.site{
+    max-width:1180px;
+    margin:10px auto 40px;
+    padding:20px 32px 0;
+    border-top:1px solid var(--line);
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  @media (max-width: 820px){
+    .explore-layout{grid-template-columns:1fr;}
+    .directory{position:static;}
+    .dossier{padding:24px 20px;}
+    .comp-row{flex-wrap:wrap;}
+    .comp-label{width:auto;}
+    .comp-range{width:auto; text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <div>
+      <div class="wordmark">IS Career <em>Launchpad</em></div>
+      <div class="header-sub">Built for BYU Information Systems students — explore where an IS degree can take you, then practice the interview that gets you there.</div>
+    </div>
+  </div>
+  <nav class="modules">
+    <button class="mode-btn active" data-mode="explore">Explore careers</button>
+    <button class="mode-btn" data-mode="interview">Interview prep</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============ EXPLORE VIEW ============ -->
+  <section id="view-explore" class="view active">
+    <div class="explore-layout">
+      <div class="directory">
+        <div class="directory-label">Six IS career paths</div>
+        <div id="directory-list"></div>
+      </div>
+      <div class="dossier" id="dossier"></div>
+    </div>
+  </section>
+
+  <!-- ============ INTERVIEW VIEW ============ -->
+  <section id="view-interview" class="view">
+    <div class="role-picker" id="role-picker"></div>
+    <div class="prep-head">
+      <h2 id="prep-title"></h2>
+      <span class="progress-pill" id="prep-progress">0 of 0 practiced</span>
+    </div>
+    <div class="prep-sub">Type your own answer first — you'll remember it better than if you just read the strong answer. Then reveal a strong response and see what makes it work.</div>
+    <div id="question-deck"></div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <strong>How this was built:</strong> Salary bands are composites drawn from 2026 public salary data (U.S. Bureau of Labor Statistics OEWS/occupation data, Glassdoor, ZipRecruiter, PayScale, and industry-specific guides from Product School and KORE1) as of September 2026 — actual offers vary significantly by location, company size, and industry. Interview questions reflect common patterns reported across public interview-prep resources and standard industry practice for each role, not any single employer's proprietary question bank. This is a prototype built for an IS course project and is not affiliated with, endorsed by, or sourced from any specific employer's confidential hiring materials.
+</footer>
+
+<script>
+/* =========================================================
+   DATA — Part 1: Career Discovery
+   ========================================================= */
+const CAREERS = [
+  {
+    id: 'swe',
+    title: 'Software / Application Developer',
+    hook: 'Builds and maintains the applications a business runs on.',
+    tagline: 'Writes, tests, and ships the code behind websites, mobile apps, and internal business tools — usually as part of a small team working in short iterative cycles.',
+    dayToDay: [
+      'Writing and reviewing code for new features or bug fixes, usually inside an existing codebase rather than from scratch',
+      'Attending a daily stand-up and sprint planning/review meetings if the team works in Agile/Scrum',
+      'Writing automated tests and debugging failures in CI pipelines',
+      'Reading other people\u2019s code in pull requests and leaving feedback',
+      'Talking with a product manager or business analyst to clarify what a ticket actually needs to do'
+    ],
+    skills: ['Git/GitHub', 'SQL', 'One backend language (Python, Java, C#, or JS/TS)', 'REST APIs', 'Basic cloud (AWS/Azure)', 'Unit testing', 'Agile/Scrum vocabulary', 'Debugging tools'],
+    entryExpectations: [
+      'Can build a small full working project end-to-end (not just tutorial follow-alongs) — a portfolio with 2-3 real projects matters more than a GPA',
+      'Understands core data structures (arrays, hash maps, trees) and can reason about time complexity at a basic level',
+      'Comfortable with Git branching/merging and has used it on a team project, not just solo',
+      'Can explain their own code choices out loud — interviewers care more about reasoning than a perfect answer'
+    ],
+    strongCandidate: [
+      'Shows curiosity by digging into how something breaks, not just fixing the symptom',
+      'Can talk through trade-offs (e.g., why they chose one data structure over another) rather than reciting syntax',
+      'Has contributed to a group codebase (class project, hackathon, internship, open source) and can describe a real merge conflict or bug they resolved',
+      'Asks clarifying questions before writing code, mirroring how real tickets are usually underspecified'
+    ],
+    comp: {entry:{min:65,max:95}, mid:{min:95,max:130}, senior:{min:140,max:180}},
+    growth: 'Fastest-growing early-career track of the six covered here. Most developers specialize (backend, front-end, mobile, or full-stack) within 2\u20133 years, and can branch toward a senior engineer, tech lead, or engineering management path by year 5\u20137.',
+    sources: 'ZipRecruiter (Aug 2026), Glassdoor (Aug 2026), and Research.com 2026 software-development salary data.'
+  },
+  {
+    id: 'ba',
+    title: 'Business / Systems Analyst',
+    hook: 'Translates business needs into requirements IT can build.',
+    tagline: 'Sits between the business side and the technical team — figuring out what a process or system actually needs to do, and writing that down clearly enough for developers to build it.',
+    dayToDay: [
+      'Interviewing stakeholders to understand a business problem or process',
+      'Writing user stories, requirements documents, and acceptance criteria',
+      'Mapping current-state vs. future-state processes, often with flowcharts or BPMN diagrams',
+      'Sitting in on sprint reviews to confirm what was built matches what was asked for',
+      'Running basic data pulls or reports to support a business case'
+    ],
+    skills: ['Requirements gathering', 'Process mapping (BPMN/flowcharts)', 'SQL (basic-to-intermediate)', 'Excel (pivot tables, VLOOKUP)', 'Jira/Confluence or similar', 'User story writing', 'Stakeholder interviewing', 'Basic wireframing'],
+    entryExpectations: [
+      'Can write a clear user story with acceptance criteria, not just a vague feature description',
+      'Comfortable asking "why" repeatedly to get past a stakeholder\u2019s assumed solution to the actual underlying problem',
+      'Basic SQL for pulling and sanity-checking data (not expected to write complex joins on day one)',
+      'Can produce a simple process diagram that a non-technical reader and a developer would both understand'
+    ],
+    strongCandidate: [
+      'Listens for the difference between what a stakeholder asks for and what they actually need',
+      'Documents decisions and requirements clearly enough that someone else could pick up the project',
+      'Comfortable being the go-between in a disagreement between business and engineering, without picking a side prematurely',
+      'Has practiced turning a vague prompt (a class case study, an internship task) into a structured requirements list'
+    ],
+    comp: {entry:{min:60,max:85}, mid:{min:85,max:110}, senior:{min:110,max:150}},
+    growth: 'BLS groups this work under broader "management analyst" and "computer systems analyst" categories with strong long-term demand. Common next steps: senior/lead BA, product manager, project manager, or systems architect, depending on whether you lean more toward the business or technical side.',
+    sources: 'ZipRecruiter (Jun 2026), Glassdoor (2026), Coursera/BLS computer systems analyst data, and KORE1 2026 Business Analyst Salary Guide.'
+  },
+  {
+    id: 'da',
+    title: 'Data Analyst',
+    hook: 'Turns raw data into answers a business can act on.',
+    tagline: 'Pulls, cleans, and analyzes data to answer specific business questions — then builds dashboards or reports so the answer sticks around after the analysis is done.',
+    dayToDay: [
+      'Writing SQL queries to pull and join data from multiple tables',
+      'Cleaning messy data (missing values, inconsistent formats, duplicate records) before it can be trusted',
+      'Building or maintaining dashboards in a BI tool (Tableau, Power BI, Looker)',
+      'Presenting findings to a non-technical stakeholder and answering "so what should we do?"',
+      'Running basic statistical checks (is this difference real or just noise?)'
+    ],
+    skills: ['SQL (joins, aggregations, window functions)', 'Excel', 'Tableau or Power BI', 'Python or R (pandas, basic stats)', 'Data cleaning', 'Data visualization principles', 'Basic statistics'],
+    entryExpectations: [
+      'Can write a SQL query with multiple joins and a GROUP BY without help — this is the single most-tested entry-level skill',
+      'Understands the difference between correlation and causation and doesn\u2019t overstate what a chart proves',
+      'Can build one clear chart instead of five confusing ones — visualization judgment matters as much as the analysis itself',
+      'Comfortable saying "the data doesn\u2019t support that" to a stakeholder, respectfully'
+    ],
+    strongCandidate: [
+      'Leads with the business question, not the dataset — starts from "what decision does this inform?"',
+      'Shows their work: can walk through how they got from raw data to a conclusion, not just the final chart',
+      'Catches their own mistakes (a wrong join, a skewed sample) before presenting, and says so if they find one after',
+      'Has a portfolio project (school, internship, or personal) with real messy data, not just a clean textbook dataset'
+    ],
+    comp: {entry:{min:58,max:78}, mid:{min:80,max:100}, senior:{min:100,max:140}},
+    growth: 'Closest BLS category (Operations Research Analysts) shows median pay in the high-$80Ks to low-$90Ks with faster-than-average projected growth. The well-worn next step is analytics engineer or data scientist, which typically adds $25K\u2013$40K within 3\u20135 years for analysts who add Python and pipeline skills.',
+    sources: 'BLS Operations Research Analyst OEWS data, Glassdoor (2026), and KORE1/CV-by-JD 2026 Data Analyst Salary Guides.'
+  },
+  {
+    id: 'cyber',
+    title: 'Cybersecurity Analyst',
+    hook: 'Watches for, investigates, and responds to security threats.',
+    tagline: 'Monitors an organization\u2019s systems for suspicious activity, investigates alerts, and helps close the gaps attackers could use — often starting in a Security Operations Center (SOC).',
+    dayToDay: [
+      'Monitoring security dashboards/SIEM tools for alerts',
+      'Triaging alerts to separate real threats from false positives',
+      'Documenting and escalating incidents according to a response playbook',
+      'Running or reviewing vulnerability scans on company systems',
+      'Writing up findings for both technical teams and non-technical leadership'
+    ],
+    skills: ['Networking fundamentals (TCP/IP, DNS, firewalls)', 'SIEM tools (Splunk, Microsoft Sentinel)', 'Linux command line', 'Security frameworks (NIST, CIA triad)', 'Scripting (Python or PowerShell)', 'Incident response basics', 'Security+ certification (common entry credential)'],
+    entryExpectations: [
+      'Understands core networking (what a firewall actually does, how DNS resolution works) before diving into tools',
+      'Can explain the CIA triad (Confidentiality, Integrity, Availability) and apply it to a real scenario',
+      'Familiar with at least one SIEM or log-analysis tool, even from a class lab or home lab, not necessarily production experience',
+      'A CompTIA Security+ certification (or actively studying for one) is a common and realistic entry-level signal'
+    ],
+    strongCandidate: [
+      'Stays calm and methodical when describing how they\u2019d investigate an alert — panic reads worse than a slower, correct process',
+      'Can translate a technical risk into plain language for a non-technical audience',
+      'Shows genuine curiosity about how systems get broken into, not just how to patch them (CTFs, home labs, security news)',
+      'Treats "I don\u2019t know, but here\u2019s how I\u2019d find out" as a completely acceptable answer'
+    ],
+    comp: {entry:{min:55,max:85}, mid:{min:95,max:135}, senior:{min:130,max:160}},
+    growth: 'One of the fastest-growing IT specialties; BLS blended median sits above $120K once senior/architect titles are folded in, though most first-time analysts start well below that. Certifications (Security+, then CySA+ or CISSP later) are the clearest lever for pay jumps in the first 3\u20135 years.',
+    sources: 'WhatIsTheSalary.com 2026 Cybersecurity Analyst Salary Guide (BLS, Indeed, PayScale composite).'
+  },
+  {
+    id: 'pm',
+    title: 'IT Project Manager',
+    hook: 'Keeps technical projects on time, on budget, and on scope.',
+    tagline: 'Plans and coordinates the people, timeline, and budget for an IT project — from a system migration to a new internal tool rollout — without necessarily writing code themselves.',
+    dayToDay: [
+      'Building and maintaining a project schedule/timeline (often in MS Project, Smartsheet, or Jira)',
+      'Running status meetings and reporting progress to stakeholders and leadership',
+      'Identifying risks before they become problems and building mitigation plans',
+      'Managing scope — deciding what\u2019s in vs. out when a stakeholder asks for "just one more thing"',
+      'Coordinating across teams (dev, QA, business) who don\u2019t naturally talk to each other'
+    ],
+    skills: ['Project scheduling (Gantt charts, critical path)', 'Agile and Waterfall methodologies', 'Risk management', 'Jira/MS Project/Smartsheet', 'Budgeting basics', 'Stakeholder communication', 'CAPM or PMP certification (usually later-career)'],
+    entryExpectations: [
+      'Understands the difference between Agile and Waterfall and can say when each fits better',
+      'Can build a simple project plan with milestones and dependencies, even for a class project',
+      'Comfortable running a meeting and following up on action items — organizational follow-through is the core skill being tested',
+      'Most entry-level roles are titled "Project Coordinator" or "Associate PM" and don\u2019t require a PMP yet'
+    ],
+    strongCandidate: [
+      'Communicates proactively — flags a risk or delay before being asked, not after',
+      'Says no (or "not yet") to scope creep in a way that keeps the relationship intact',
+      'Has led something, even informally — a class group project, a club event, a work shift — and can describe how they kept it on track',
+      'Thinks in checklists and dependencies naturally, without being told to'
+    ],
+    comp: {entry:{min:55,max:75}, mid:{min:85,max:115}, senior:{min:115,max:150}},
+    growth: 'Entry point is usually a Project Coordinator or Associate PM role. A PMP certification (earned after some work experience) is the clearest pay lever for reaching Senior PM or PMO Lead roles in the $115K+ range.',
+    sources: 'Glassdoor 2026 Associate Project Manager data; general PMI/PMP career-path benchmarks.'
+  },
+  {
+    id: 'apm',
+    title: 'Product Manager (via Associate PM track)',
+    hook: 'Decides what gets built and why, working across design, engineering, and the business.',
+    tagline: 'Owns the "what" and "why" of a product feature — gathering evidence, aligning a team around a plan, and measuring whether what shipped actually worked.',
+    dayToDay: [
+      'Talking to users or customers to understand a problem before proposing a solution',
+      'Writing product requirements docs (PRDs) that engineers and designers can build from',
+      'Prioritizing a backlog of ideas against limited engineering time',
+      'Reviewing usage data/metrics to see whether a shipped feature is working',
+      'Running or attending standups, design reviews, and sprint planning without owning the code itself'
+    ],
+    skills: ['Prioritization frameworks (RICE, MoSCoW)', 'Basic SQL/analytics literacy', 'Writing PRDs/user stories', 'Wireframing basics (Figma)', 'A/B testing fundamentals', 'Cross-functional communication', 'Roadmapping tools (Jira, Productboard)'],
+    entryExpectations: [
+      'Can reason about trade-offs with limited data — "we don\u2019t have enough info, so here\u2019s the smallest way to test this" is a strong answer',
+      'Basic data literacy: can read a dashboard and know what metric actually matters for a given decision',
+      'Understands enough of the technical side (how APIs work, what "technical debt" means) to have a credible conversation with engineers',
+      'Associate Product Manager (APM) programs are the most common entry point and often value structured problem-solving over prior PM experience'
+    ],
+    strongCandidate: [
+      'Asks "what problem are we actually solving?" before jumping to feature ideas',
+      'Can defend a prioritization decision with a clear framework rather than gut feel',
+      'Shows they can influence without formal authority — getting an engineer or designer on board through reasoning, not title',
+      'Has some evidence of building or shipping something, even informally (a class project people used, a club process they redesigned)'
+    ],
+    comp: {entry:{min:77,max:108}, mid:{min:101,max:158}, senior:{min:150,max:250}},
+    growth: 'APM programs (common at larger tech companies) are the most structured entry path; base salary bands are wide because company stage and location move pay more here than in most IS tracks. Typical progression is APM \u2192 PM \u2192 Senior PM \u2192 Group PM/Director over 5\u201310 years.',
+    sources: 'Product School 2026 PM Salary Guide, PayScale 2026 APM data, Glassdoor 2026 Associate Product Manager data.',
+    standalonePage: 'product-management-overview.html'
+  }
+];
+
+/* =========================================================
+   DATA — Part 2: Interview Prep
+   ========================================================= */
+const QUESTIONS = {
+  swe: [
+    {type:'behavioral', q:'Tell me about a time you were stuck on a bug for a long time. What did you eventually do?',
+      strong:'I was building a small inventory app for a class project and a form submission was silently failing. I spent about an hour guessing at the cause before stepping back and adding console logs at each step instead of assuming where the problem was. That showed the data was arriving fine but a field name mismatch was silently dropping it before the database call. The fix took two minutes once I found it \u2014 the lesson was to isolate the problem systematically instead of guessing.',
+      tip:'Interviewers are listening for process (did you isolate the problem systematically?) more than the specific bug. Always end with what you\u2019d do differently or what you learned.'},
+    {type:'behavioral', q:'Describe a project where you had to learn a new technology quickly.',
+      strong:'For a hackathon, our team decided to use a database ORM none of us had used before because it fit the project better than raw SQL. I spent the first two hours reading the official docs and building a tiny throwaway example before touching the real project, which meant I made my mistakes on a five-line test file instead of the real codebase. That upfront investment paid off \u2014 we shipped on time and the code was cleaner than if I\u2019d learned by trial-and-error on the real thing.',
+      tip:'Name the specific learning strategy you used (docs first, small test project, asking a teammate) \u2014 "I just figured it out" doesn\u2019t give the interviewer anything to evaluate.'},
+    {type:'technical', q:'Write a SQL query to find the second-highest salary in an employee table.',
+      strong:'SELECT MAX(salary) FROM employees WHERE salary < (SELECT MAX(salary) FROM employees); This works by first finding the true max, then finding the max of everything below it. A window-function alternative: SELECT salary FROM (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk FROM employees) t WHERE rnk = 2 \u2014 this version also handles ties more predictably.',
+      tip:'If you can, say the trade-off out loud: the nested-MAX approach is simpler to read; the window-function approach scales better to "find the Nth highest."'},
+    {type:'technical', q:'What\u2019s the difference between a stack and a queue, and when would you use each?',
+      strong:'A stack is last-in-first-out (LIFO) \u2014 think of a stack of plates, you take from the top. A queue is first-in-first-out (FIFO) \u2014 like a checkout line. Stacks are useful for things like undo/redo functionality or tracking function calls (the call stack). Queues fit anything that needs to process items in the order they arrived, like a task scheduler or a print queue.',
+      tip:'Give one concrete real-world example for each \u2014 it shows you understand the concept, not just the definition.'},
+    {type:'technical', q:'Walk me through how you\u2019d design a simple database schema for a to-do list app with users, lists, and tasks.',
+      strong:'I\u2019d start with three tables: users (id, name, email), lists (id, user_id as a foreign key, title), and tasks (id, list_id as a foreign key, description, is_complete, due_date). The foreign keys enforce that every list belongs to a user and every task belongs to a list. I\u2019d index user_id and list_id since those are the columns I\u2019d be filtering and joining on most often.',
+      tip:'Draw it out if you have a whiteboard or shared doc \u2014 interviewers care as much about how you talk through the relationships as the final schema.'}
+  ],
+  ba: [
+    {type:'behavioral', q:'Tell me about a time you had to gather requirements from stakeholders who disagreed with each other.',
+      strong:'In a group capstone project, our "client" stakeholders (played by two professors) wanted different things from the same feature. Instead of picking a side, I scheduled a short call with both, asked each to explain the business reason behind their request, and found they actually agreed on the underlying goal \u2014 they just disagreed on the solution. Documenting that shared goal let us propose one option that satisfied both, instead of building something and finding out later it missed the mark.',
+      tip:'The strongest version of this answer separates "what they asked for" from "why they asked for it" \u2014 that\u2019s the core BA skill being tested.'},
+    {type:'behavioral', q:'Describe how you handled a project with unclear or shifting scope.',
+      strong:'On a group project the deliverable kept changing as we learned more about what the professor actually wanted. I started keeping a simple running document of decisions and open questions, and brought it to every check-in so we weren\u2019t re-litigating things we\u2019d already agreed on. That habit didn\u2019t stop scope from shifting, but it made each shift a small, visible decision instead of a confusing surprise.',
+      tip:'BAs are rarely evaluated on preventing change \u2014 they\u2019re evaluated on managing it visibly. Emphasize documentation and communication, not control.'},
+    {type:'technical', q:'What\u2019s the difference between a functional and a non-functional requirement?',
+      strong:'A functional requirement describes what the system should do \u2014 "users can reset their password via email." A non-functional requirement describes how well it should do it \u2014 "password reset emails must arrive within 60 seconds" or "the system must support 10,000 concurrent users." Both matter, but non-functional requirements are the ones teams forget to write down and then get blamed for later.',
+      tip:'Giving a concrete non-functional example (performance, security, scalability) shows you understand why it\u2019s easy to overlook.'},
+    {type:'technical', q:'Write a user story with acceptance criteria for a "forgot password" feature.',
+      strong:'User story: "As a user, I want to reset my password via email so that I can regain access to my account without contacting support." Acceptance criteria: (1) User can request a reset from the login screen, (2) A reset link is emailed within 60 seconds and expires after 30 minutes, (3) The link takes the user to a form requiring a new password twice, (4) An invalid or expired link shows a clear error message, not a broken page.',
+      tip:'Acceptance criteria should be testable \u2014 each one should be something a QA tester could check off as pass/fail.'},
+    {type:'technical', q:'How would you prioritize a backlog when three different stakeholders each say their feature is critical?',
+      strong:'I\u2019d push back gently on "critical" as a category and ask each stakeholder to tie their request to a measurable business outcome \u2014 revenue, retention, compliance risk, or cost savings. Then I\u2019d use a simple framework like effort vs. impact to plot all three on the same scale, which turns a political disagreement into a shared, visible comparison. If it\u2019s still a tie, I\u2019d escalate the trade-off to whoever owns the roadmap rather than deciding it myself.',
+      tip:'The interviewer wants to see you have a repeatable method, not just "I\u2019d use common sense."'}
+  ],
+  da: [
+    {type:'behavioral', q:'Tell me about a time your analysis changed a decision.',
+      strong:'For a class project analyzing sales data, the initial assumption was that a marketing campaign had driven a revenue spike. When I broke the spike down by product line instead of looking at the total, it turned out one unrelated product had a supply shortage resolve at the same time \u2014 the campaign barely moved the number. Presenting that breakdown changed the recommendation from "increase the marketing budget" to "don\u2019t assume causation from a single aggregate trend."',
+      tip:'This is a great chance to show you understand correlation vs. causation \u2014 a concept interviewers explicitly probe for.'},
+    {type:'behavioral', q:'Describe a time you found a mistake in your own analysis. What did you do?',
+      strong:'I was building a dashboard and the totals looked off by about 15%. Instead of quietly fixing it and moving on, I traced it back to a join that was duplicating rows for customers with multiple orders, flagged it to my team before presenting anything, and fixed the query. I also added a row-count sanity check to catch that class of error earlier next time.',
+      tip:'Interviewers specifically want to hear that you caught it yourself and communicated it \u2014 hiding a mistake is a bigger red flag than making one.'},
+    {type:'technical', q:'What\u2019s the difference between an INNER JOIN and a LEFT JOIN?',
+      strong:'An INNER JOIN returns only rows that have a match in both tables. A LEFT JOIN returns every row from the left (first) table, and fills in NULLs for any columns from the right table where there\u2019s no match. I\u2019d use a LEFT JOIN when I want to keep every customer, for example, even ones who haven\u2019t placed an order yet \u2014 an INNER JOIN would silently drop them.',
+      tip:'Give the concrete example (customers with no orders) \u2014 it shows you understand the practical impact, not just the syntax.'},
+    {type:'technical', q:'How would you handle missing data in a dataset before analyzing it?',
+      strong:'First I\u2019d figure out why it\u2019s missing \u2014 missing-at-random data is very different from missing data that\u2019s systematically tied to something (e.g., a form field that only appears for certain user types). Depending on the case, I might drop the rows if the missing data is a small fraction and random, fill in a reasonable default or the median, or flag it explicitly rather than guessing. I\u2019d never silently fill in a value without noting the assumption in my analysis.',
+      tip:'"It depends, and here\u2019s how I\u2019d decide" is a much stronger answer than picking one method and applying it blindly.'},
+    {type:'technical', q:'A key metric dropped 20% overnight. Walk me through how you\u2019d investigate.',
+      strong:'First I\u2019d check whether it\u2019s a data problem before assuming it\u2019s a real business problem \u2014 did a tracking pipeline break, did a report definition change, is a whole segment missing? If the data looks clean, I\u2019d segment the drop by date, geography, platform, or user type to see if it\u2019s broad or concentrated in one slice, since a concentrated drop points to a specific cause much faster than an aggregate number does. Only after ruling out a data issue and narrowing the segment would I start forming hypotheses about the actual business cause.',
+      tip:'Leading with "rule out a data/pipeline issue first" is the answer that separates junior from experienced analysts \u2014 most real "metric drops" turn out to be broken tracking.'}
+  ],
+  cyber: [
+    {type:'behavioral', q:'Tell me about a time you had to explain a technical risk to a non-technical audience.',
+      strong:'In a group project I had to explain to non-technical classmates why we shouldn\u2019t store passwords in plain text in our database. Instead of explaining hashing algorithms, I used an analogy: it\u2019s like writing everyone\u2019s house key on a public sign-in sheet versus giving them a lock only they can open. That got the point across, and the group actually understood why we\u2019d spend extra time implementing it properly instead of just seeing it as busywork.',
+      tip:'A good analogy is often more convincing evidence of understanding than technical jargon \u2014 it proves you actually grasp the concept.'},
+    {type:'behavioral', q:'How do you stay current on new security threats?',
+      strong:'I follow a couple of security-focused newsletters and subreddits, and I\u2019ve worked through some rooms on TryHackMe to get hands-on with concepts instead of just reading about them. When a major vulnerability makes the news, I try to actually read the technical write-up instead of just the headline, since that\u2019s usually where the useful detail is.',
+      tip:'Name specific resources (TryHackMe, HackTheBox, specific newsletters, CTFs) \u2014 vague answers like "I read the news" don\u2019t hold up well against other candidates.'},
+    {type:'technical', q:'What is the CIA triad and why does it matter?',
+      strong:'CIA stands for Confidentiality, Integrity, and Availability \u2014 the three things security is trying to protect. Confidentiality means only authorized people can see data. Integrity means data hasn\u2019t been tampered with. Availability means systems stay up and accessible when needed. Most security decisions are really a trade-off between these three \u2014 for example, adding more authentication steps improves confidentiality but can hurt availability if it locks legitimate users out.',
+      tip:'Mentioning the trade-offs between the three (not just defining them) shows a deeper level of understanding than a textbook definition.'},
+    {type:'technical', q:'What\u2019s the difference between a vulnerability and an exploit?',
+      strong:'A vulnerability is a weakness \u2014 a flaw in software, configuration, or a process that could be abused. An exploit is the actual method or code used to take advantage of that weakness. A system can have a vulnerability for years without ever being exploited if no one finds or uses it. That distinction matters for prioritization: not every vulnerability needs the same urgency, which is where risk scoring comes in.',
+      tip:'Ending with how this affects prioritization (not every vulnerability is equally urgent) shows you understand the practical, day-to-day application.'},
+    {type:'technical', q:'You get an alert about unusual login activity on a user account at 3am. Walk me through your first steps.',
+      strong:'First I\u2019d check whether the alert has basic supporting detail \u2014 unfamiliar location, new device, impossible travel time from the last known login \u2014 to judge how suspicious it actually looks before treating it as confirmed. Next I\u2019d check whether that account has elevated privileges, since that changes the urgency. If it looks credible, I\u2019d follow the incident response playbook: contain (often a forced password reset or temporary account lock), document what I found and when, and escalate to whoever owns that step \u2014 I wouldn\u2019t take independent action outside the playbook as a junior analyst.',
+      tip:'Interviewers want to hear "I\u2019d follow the playbook and escalate appropriately," not a solo hero move \u2014 real SOC analysts work within a defined process.'}
+  ],
+  pm: [
+    {type:'behavioral', q:'Tell me about a project that fell behind schedule. How did you handle it?',
+      strong:'For a group project, we lost almost a week when a team member got sick right before a key deliverable. Instead of just absorbing the delay quietly, I re-baselined the schedule immediately, identified which remaining tasks could run in parallel instead of sequentially, and communicated the new timeline to our professor early rather than waiting until it was overdue. We still finished on time, just with a different critical path than we\u2019d originally planned.',
+      tip:'The key skill being tested is "did you communicate the delay early?" \u2014 surprising a stakeholder with bad news late is the classic project management failure.'},
+    {type:'behavioral', q:'Describe a time you had to manage conflict between team members.',
+      strong:'Two teammates on a group project disagreed strongly about which approach to take on a shared deliverable, and it was starting to slow the whole team down. I pulled them into a short separate conversation, had each explain their reasoning to the other rather than to me, and we ended up combining the best parts of both approaches. The lesson was that most "personality conflicts" are actually just people not hearing each other\u2019s reasoning.',
+      tip:'Show that you facilitated rather than dictated a solution \u2014 PMs rarely have formal authority to just override people.'},
+    {type:'technical', q:'What\u2019s the difference between Agile and Waterfall, and when would you use each?',
+      strong:'Waterfall is sequential \u2014 you fully plan, then design, then build, then test, in fixed phases, which works well when requirements are well understood and unlikely to change, like a regulated compliance project. Agile is iterative \u2014 short cycles (sprints) that deliver working pieces and adjust based on feedback, which fits better when requirements are likely to evolve, like most software products. Most real IT projects use some blend, and part of a PM\u2019s job is picking the right mix for a given project rather than defaulting to one methodology.',
+      tip:'Saying "it depends on the project" and naming the deciding factor (requirement stability) is stronger than declaring one methodology universally better.'},
+    {type:'technical', q:'What is a critical path and why does it matter?',
+      strong:'The critical path is the longest sequence of dependent tasks in a project \u2014 it determines the shortest possible time the project can take, because a delay on any task on that path delays the whole project. Tasks not on the critical path have some slack, meaning they can slip a little without affecting the end date. Knowing the critical path tells a PM exactly where to focus attention when something starts to slip.',
+      tip:'If you can, give a quick example (task B can\u2019t start until task A finishes) to show you understand dependencies, not just the definition.'},
+    {type:'technical', q:'A stakeholder asks for "just one more small feature" mid-project. How do you handle it?',
+      strong:'I wouldn\u2019t say a flat no \u2014 I\u2019d acknowledge the request, then walk them through the actual trade-off: adding it means either extending the timeline, adding budget/resources, or cutting something else already planned. Putting the request through a lightweight change-control process, even an informal one, makes the trade-off visible instead of letting scope grow invisibly. Most of the time, once stakeholders see the real trade-off spelled out, they either accept the delay or decide it wasn\u2019t that critical after all.',
+      tip:'The core PM skill here is making trade-offs visible, not being the "no" person \u2014 interviewers are listening for a process, not a personality trait.'}
+  ],
+  apm: [
+    {type:'behavioral', q:'Tell me about a time you disagreed with an engineer or designer about a feature. How did you resolve it?',
+      strong:'On a class project, our developer wanted to build a more technically elegant solution that would have taken twice as long, while I thought a simpler version would test our core hypothesis just as well. Instead of just asserting my opinion, I asked what specific risk the more complex version was protecting against, and it turned out to be a scale concern that didn\u2019t apply to our small user test. Once we both understood the actual trade-off, we agreed on the simpler version together \u2014 it wasn\u2019t really my call to make unilaterally.',
+      tip:'PM interviews specifically test whether you can influence without formal authority \u2014 show that you understood their reasoning before pushing back, not that you just won the argument.'},
+    {type:'behavioral', q:'Describe a product you love and one you don\u2019t. Why?',
+      strong:'I love an app I use for a specific reason: it solves one problem extremely well instead of trying to do everything, and the one time I had a confusing experience, the error message told me exactly what to do next instead of just saying "something went wrong." I don\u2019t love an app that constantly interrupts me with notifications trying to bring me back in \u2014 it optimizes for a short-term engagement metric in a way that actually makes me trust the product less over time.',
+      tip:'Interviewers are testing product sense, not taste \u2014 explain the "why" in terms of a design or business trade-off, not just personal preference.'},
+    {type:'technical', q:'How would you prioritize which features to build with limited engineering time?',
+      strong:'I\u2019d use a framework like RICE (Reach, Impact, Confidence, Effort) so the comparison is explicit instead of based on whoever argues loudest. I\u2019d also separate "must-have" fixes (bugs, broken core flows) from "nice-to-have" new features, since those shouldn\u2019t really compete on the same list. Once ranked, I\u2019d bring the top few options back to the team, since engineering can often spot a much cheaper way to get 80% of the value.',
+      tip:'Naming a specific framework (RICE, MoSCoW, ICE) and explaining why it helps shows structured thinking \u2014 "I\u2019d just pick the most important ones" is too vague.'},
+    {type:'technical', q:'How would you measure whether a newly launched feature is successful?',
+      strong:'First I\u2019d define success before launch, not after \u2014 what specific metric moves if this feature works, and what would the number need to do to call it a win? Then I\u2019d pick one primary metric tied to the actual goal (not just "usage went up," since a confusing feature can also drive up clicks) and a couple of guardrail metrics to make sure I\u2019m not accidentally hurting something else, like overall retention. I\u2019d also want a comparison point \u2014 either a before/after baseline or an A/B test \u2014 rather than judging the number in isolation.',
+      tip:'The strongest answers define success before launch and include a guardrail metric \u2014 it shows you\u2019re not just chasing a vanity number.'},
+    {type:'technical', q:'Estimate how many people check a weather app in a given city in one day.',
+      strong:'I\u2019d start with the city\u2019s population, say roughly 2 million, and estimate what fraction actively uses a smartphone weather app \u2014 maybe 40%, so 800,000 potential users. Of those, I\u2019d guess a typical user checks it once or twice a day on an average day, more on days with unusual weather, so I\u2019d estimate around 1 million total checks on a normal day. I\u2019d flag my assumptions clearly rather than presenting the final number as precise \u2014 the interviewer usually cares more about the reasoning path than the exact figure.',
+      tip:'Talk out loud through every assumption and round numbers cleanly \u2014 interviewers are grading your reasoning process, not whether you land on the "right" number.'}
+  ]
+};
+
+/* =========================================================
+   RENDER: Explore module
+   ========================================================= */
+let activeCareer = CAREERS[0].id;
+
+function renderDirectory(){
+  const list = document.getElementById('directory-list');
+  list.innerHTML = CAREERS.map(c => `
+    <button class="dir-item ${c.id===activeCareer?'active':''}" data-id="${c.id}">
+      <span class="t">${c.title}</span>
+      <span class="d">${c.hook}</span>
+    </button>
+  `).join('');
+  list.querySelectorAll('.dir-item').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ activeCareer = btn.dataset.id; renderDirectory(); renderDossier(); });
+  });
+}
+
+function compBar(range, maxScale){
+  const width = Math.min(100, Math.round((range.max/maxScale)*100));
+  return `<div class="comp-fill" style="width:${width}%"></div>`;
+}
+
+function renderDossier(){
+  const c = CAREERS.find(x=>x.id===activeCareer);
+  const maxScale = 260;
+  document.getElementById('dossier').innerHTML = `
+    <div class="dossier-head">
+      <h2>${c.title}</h2>
+      <div class="tagline">${c.tagline}</div>
+      ${c.standalonePage ? `<a class="standalone-link" href="${c.standalonePage}" target="_blank" rel="noopener">Open as a standalone one-page overview &rarr;</a>` : ''}
+    </div>
+
+    <div class="section">
+      <h3>Day-to-day</h3>
+      <ul>${c.dayToDay.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </div>
+
+    <div class="section">
+      <h3>Technical skills &amp; tools</h3>
+      <div class="badges">${c.skills.map(s=>`<span class="badge">${s}</span>`).join('')}</div>
+    </div>
+
+    <div class="section">
+      <h3>What an entry-level candidate is expected to know</h3>
+      <ul>${c.entryExpectations.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </div>
+
+    <div class="section">
+      <h3>Compensation &amp; growth (2026 U.S. composite)</h3>
+      <div class="comp-row">
+        <div class="comp-label">Entry-level</div>
+        <div class="comp-track">${compBar(c.comp.entry, maxScale)}</div>
+        <div class="comp-range">$${c.comp.entry.min}K \u2013 $${c.comp.entry.max}K</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Mid-career</div>
+        <div class="comp-track">${compBar(c.comp.mid, maxScale)}</div>
+        <div class="comp-range">$${c.comp.mid.min}K \u2013 $${c.comp.mid.max}K</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Senior</div>
+        <div class="comp-track">${compBar(c.comp.senior, maxScale)}</div>
+        <div class="comp-range">$${c.comp.senior.min}K \u2013 $${c.comp.senior.max}K+</div>
+      </div>
+      <div class="growth-note">${c.growth}</div>
+    </div>
+
+    <div class="section">
+      <h3>What makes a strong candidate</h3>
+      <ul>${c.strongCandidate.map(x=>`<li>${x}</li>`).join('')}</ul>
+    </div>
+
+    <div class="sources-note"><strong>Sources:</strong> ${c.sources}</div>
+  `;
+}
+
+/* =========================================================
+   RENDER: Interview module
+   ========================================================= */
+let activeRole = CAREERS[0].id;
+
+function renderRolePicker(){
+  const wrap = document.getElementById('role-picker');
+  wrap.innerHTML = CAREERS.map(c=>`
+    <button class="role-chip ${c.id===activeRole?'active':''}" data-id="${c.id}">${c.title}</button>
+  `).join('');
+  wrap.querySelectorAll('.role-chip').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ activeRole = btn.dataset.id; renderRolePicker(); renderDeck(); });
+  });
+}
+
+function updateProgress(){
+  const cards = document.querySelectorAll('#question-deck .qcard');
+  let done = 0;
+  cards.forEach(card=>{
+    const ta = card.querySelector('textarea');
+    const revealed = card.querySelector('.reveal-panel').classList.contains('open');
+    if((ta.value.trim().length > 0) || revealed) done++;
+  });
+  document.getElementById('prep-progress').textContent = `${done} of ${cards.length} practiced`;
+}
+
+function renderDeck(){
+  const c = CAREERS.find(x=>x.id===activeRole);
+  const qs = QUESTIONS[activeRole];
+  document.getElementById('prep-title').textContent = c.title;
+  document.getElementById('question-deck').innerHTML = qs.map((q, i)=>`
+    <div class="qcard">
+      <div class="qcard-top">
+        <span class="qtag ${q.type}">${q.type === 'behavioral' ? 'Behavioral' : 'Technical'}</span>
+        <div class="qtext">${q.q}</div>
+      </div>
+      <textarea placeholder="Type your attempt here before revealing the strong answer..." data-idx="${i}"></textarea>
+      <div class="qcard-actions">
+        <span class="attempt-status">Your attempt is only saved for this session.</span>
+        <button class="reveal-btn" data-idx="${i}">Reveal a strong answer</button>
+      </div>
+      <div class="reveal-panel" data-idx="${i}">
+        <h4>A strong answer</h4>
+        <p>${q.strong}</p>
+        <div class="tip"><strong>Why it works:</strong> ${q.tip}</div>
+      </div>
+    </div>
+  `).join('');
+
+  document.querySelectorAll('#question-deck textarea').forEach(ta=>{
+    ta.addEventListener('input', updateProgress);
+  });
+  document.querySelectorAll('.reveal-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const panel = document.querySelector(`.reveal-panel[data-idx="${btn.dataset.idx}"]`);
+      panel.classList.toggle('open');
+      btn.textContent = panel.classList.contains('open') ? 'Hide strong answer' : 'Reveal a strong answer';
+      updateProgress();
+    });
+  });
+  updateProgress();
+}
+
+/* =========================================================
+   MODE SWITCHING
+   ========================================================= */
+document.querySelectorAll('.mode-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const mode = btn.dataset.mode;
+    document.getElementById('view-explore').classList.toggle('active', mode==='explore');
+    document.getElementById('view-interview').classList.toggle('active', mode==='interview');
+  });
+});
+
+/* =========================================================
+   INIT
+   ========================================================= */
+renderDirectory();
+renderDossier();
+renderRolePicker();
+renderDeck();
+</script>
+</body>
+</html>
