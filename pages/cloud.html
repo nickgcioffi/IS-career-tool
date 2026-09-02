@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="An interactive cloud infrastructure career explorer for BYU Information Systems students." />
+        <title>Cloud Career Explorer | BYU IS</title>
+        <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="../css/cloud.css" rel="stylesheet" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top cloud-nav shadow-sm">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand brand-mark fw-bold" href="../index.html"><span class="brand-cube"><i class="bi bi-grid-3x3-gap-fill"></i></span> IS Career Atlas</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#cloudNav" aria-controls="cloudNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="cloudNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="cloud.html">Cloud Infrastructure</a></li>
+                        <li class="nav-item"><a class="nav-link" href="product.html">Product Management</a></li>
+                        <li class="nav-item"><a class="nav-link" href="cyber.html">Cybersecurity</a></li>
+                        <li class="nav-item"><a class="nav-link" href="data.html">Data Analytics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="hero">
+            <div class="container px-4 px-lg-5">
+                <p class="eyebrow mb-4">BYU Information Systems · Cloud Infrastructure</p>
+                <h1 class="mb-4">Build what the<br /><span>internet runs on.</span></h1>
+                <p class="hero-copy mb-5">Cloud infrastructure careers sit where business systems, code, networking, and operations meet. Explore the roles that build, run, secure, and design the platforms modern organizations depend on.</p>
+                <div class="d-flex flex-column flex-sm-row gap-4 gap-sm-5">
+                    <div class="hero-stat"><strong>5 roles</strong><span>from support to architecture</span></div>
+                    <div class="hero-stat"><strong>4 industries</strong><span>with different operating needs</span></div>
+                    <div class="hero-stat"><strong>1 roadmap</strong><span>to turn curiosity into evidence</span></div>
+                </div>
+                <a class="btn btn-light rounded-pill fw-bold mt-5 px-4 py-3" href="#explorer">Explore the roles <i class="bi bi-arrow-down ms-2"></i></a>
+            </div>
+        </header>
+
+        <main>
+            <section class="section-pad" aria-labelledby="industry-heading">
+                <div class="container px-4 px-lg-5">
+                    <div class="row align-items-end mb-4">
+                        <div class="col-lg-7"><p class="eyebrow text-primary">Start with the environment</p><h2 class="section-title mb-3" id="industry-heading">Cloud infrastructure powers every industry.</h2></div>
+                        <div class="col-lg-5"><p class="text-muted mb-0">The core toolkit travels well. What changes is the risk, pace, customer, and scale. Select an industry to apply that lens to the role explorer.</p></div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-sm-6 col-lg-3"><button class="industry-card active" data-industry="Technology" aria-pressed="true"><i class="bi bi-cpu"></i><h3 class="h6 fw-bold mt-3">Technology &amp; SaaS</h3><small>Ship quickly, automate everything, and support fast-growing products.</small></button></div>
+                        <div class="col-sm-6 col-lg-3"><button class="industry-card" data-industry="Finance" aria-pressed="false"><i class="bi bi-bank"></i><h3 class="h6 fw-bold mt-3">Finance &amp; fintech</h3><small>Design for auditability, resilience, privacy, and strict controls.</small></button></div>
+                        <div class="col-sm-6 col-lg-3"><button class="industry-card" data-industry="Healthcare" aria-pressed="false"><i class="bi bi-heart-pulse"></i><h3 class="h6 fw-bold mt-3">Healthcare</h3><small>Protect sensitive data and keep critical systems continuously available.</small></button></div>
+                        <div class="col-sm-6 col-lg-3"><button class="industry-card" data-industry="Consulting" aria-pressed="false"><i class="bi bi-briefcase"></i><h3 class="h6 fw-bold mt-3">Consulting</h3><small>Translate business needs into cloud migrations for varied clients.</small></button></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-pad explorer" id="explorer" aria-labelledby="explorer-heading">
+                <div class="container px-4 px-lg-5">
+                    <div class="row align-items-end mb-4">
+                        <div class="col-lg-7"><p class="eyebrow text-primary">Interactive role explorer</p><h2 class="section-title mb-3" id="explorer-heading">Find your place in the stack.</h2></div>
+                        <div class="col-lg-5"><p class="text-muted mb-0">Your selected industry shapes each profile. Filter the job category, then choose a title to see the work, toolkit, entry bar, pay, and industry context.</p></div>
+                    </div>
+                    <div class="filter-row mb-4" aria-label="Filter roles by category">
+                        <button class="filter-btn active" data-filter="all" aria-pressed="true">All roles</button>
+                        <button class="filter-btn" data-filter="operate" aria-pressed="false">Operate</button>
+                        <button class="filter-btn" data-filter="build" aria-pressed="false">Build &amp; automate</button>
+                        <button class="filter-btn" data-filter="secure" aria-pressed="false">Secure</button>
+                        <button class="filter-btn" data-filter="design" aria-pressed="false">Design</button>
+                    </div>
+                    <div class="row g-4 align-items-start">
+                        <div class="col-lg-4"><div class="role-list" id="role-list" aria-label="Cloud career roles"></div></div>
+                        <div class="col-lg-8">
+                            <article class="detail-panel" id="role-detail" aria-live="polite">
+                                <div class="detail-head">
+                                    <div class="d-flex justify-content-between align-items-start gap-3 mb-3"><div class="d-flex flex-wrap gap-2"><span class="category-tag" id="detail-category"></span><span class="category-tag industry-tag"><i class="bi bi-buildings me-1"></i><span id="detail-industry"></span></span></div><i class="bi bi-clouds fs-2 text-white"></i></div>
+                                    <h3 class="mb-2" id="detail-title"></h3>
+                                    <p class="mb-0 text-white-50" id="detail-summary"></p>
+                                </div>
+                                <div class="detail-body">
+                                    <section class="detail-section industry-context"><h4 class="detail-label"><i class="bi bi-buildings"></i> Industry context</h4><p class="industry-priority mb-3" id="detail-industry-priority"></p><div class="industry-facts"><div><small>Likely project</small><strong id="detail-industry-project"></strong></div><div><small>What hiring teams value</small><strong id="detail-industry-signal"></strong></div><div><small>Employer examples</small><strong id="detail-industry-employers"></strong></div></div></section>
+                                    <section class="detail-section"><h4 class="detail-label"><i class="bi bi-clock"></i> A day in the role</h4><ul class="day-list" id="detail-day"></ul></section>
+                                    <div class="row detail-section g-4">
+                                        <section class="col-md-6"><h4 class="detail-label"><i class="bi bi-terminal"></i> Technical toolkit</h4><div id="detail-tools"></div></section>
+                                        <section class="col-md-6"><h4 class="detail-label"><i class="bi bi-mortarboard"></i> Entry-level bar</h4><p class="small lh-lg mb-0" id="detail-entry"></p></section>
+                                    </div>
+                                    <section class="detail-section"><h4 class="detail-label"><i class="bi bi-graph-up-arrow"></i> Salary &amp; trajectory</h4><div class="salary-levels" id="detail-salary"></div><p class="small text-muted mt-3 mb-0" id="detail-growth"></p></section>
+                                    <section><h4 class="detail-label"><i class="bi bi-stars"></i> What makes a strong candidate</h4><div class="candidate-box small lh-lg" id="detail-candidate"></div></section>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-pad pathway" aria-labelledby="roadmap-heading">
+                <div class="container px-4 px-lg-5">
+                    <div class="row g-5">
+                        <div class="col-lg-5"><p class="eyebrow">A practical BYU IS roadmap</p><h2 class="section-title text-white" id="roadmap-heading">Turn classes into proof.</h2><p class="text-white-50 lh-lg">A certification can help your résumé get found. A small, documented system proves you can do the work. Aim to leave each semester with both vocabulary and evidence.</p></div>
+                        <div class="col-lg-6 offset-lg-1">
+                            <div class="path-step row"><div class="col-2 step-num">01</div><div class="col-10"><h3 class="h5">Learn the system</h3><p class="text-white-50 mb-0">Understand networking, Linux, identity, databases, and how a web request moves through a cloud architecture.</p></div></div>
+                            <div class="path-step row"><div class="col-2 step-num">02</div><div class="col-10"><h3 class="h5">Build one real deployment</h3><p class="text-white-50 mb-0">Deploy an app with infrastructure as code, least-privilege access, monitoring, a budget alert, and a clear README.</p></div></div>
+                            <div class="path-step row"><div class="col-2 step-num">03</div><div class="col-10"><h3 class="h5">Practice the story</h3><p class="text-white-50 mb-0">Explain the business need, your tradeoffs, the failure you diagnosed, the cost, and what you would improve next.</p></div></div>
+                            <div class="path-step row"><div class="col-2 step-num">04</div><div class="col-10"><h3 class="h5">Target adjacent internships</h3><p class="text-white-50 mb-0">Search beyond “cloud intern”: systems, platform, IT operations, solutions, security, DevOps, and technical consulting roles all build relevant experience.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-5 bg-white">
+                <div class="container px-4 px-lg-5 source-note">
+                    <strong class="text-dark">About the numbers.</strong> Salary bands are rounded national planning ranges mapped to the closest BLS occupational families—not guarantees or BYU placement data. Location, industry, company size, and experience materially change compensation. Benchmarks use the U.S. Bureau of Labor Statistics profiles for <a href="https://www.bls.gov/ooh/computer-and-information-technology/network-and-computer-systems-administrators.htm" target="_blank" rel="noopener">systems administrators</a>, <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm" target="_blank" rel="noopener">software developers</a>, <a href="https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm" target="_blank" rel="noopener">information security analysts</a>, and <a href="https://www.bls.gov/ooh/computer-and-information-technology/computer-network-architects.htm" target="_blank" rel="noopener">network architects</a>. Updated September 2026.
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-4">
+            <div class="container px-4 px-lg-5 d-flex flex-column flex-sm-row justify-content-between gap-2 small"><span>IS Career Atlas · Built for BYU IS students</span><a href="../index.html">Back to all career paths <i class="bi bi-arrow-right"></i></a></div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            const roles = [
+                {
+                    id: "support", category: "operate", categoryLabel: "Operate", icon: "bi-headset", title: "Cloud Support Associate", subtitle: "Troubleshoot & guide customers",
+                    summary: "The most accessible on-ramp: diagnose cloud issues, explain solutions, and learn how production systems fail.",
+                    day: ["Triage customer tickets and reproduce technical issues", "Read logs, test network paths, and isolate root causes", "Document fixes and escalate complex incidents with useful context"],
+                    tools: ["AWS / Azure / GCP", "Linux", "TCP/IP & DNS", "SQL", "CloudWatch", "Ticketing"],
+                    entry: "Know basic networking, Linux commands, identity and access concepts, and one cloud platform. Interviewers value calm troubleshooting and clear written communication more than memorized services.",
+                    salary: [["Entry", "$60–80k"], ["Mid-level", "$80–105k"], ["Next step", "Engineer / TAM"]],
+                    growth: "Closest BLS family: network and computer systems administrators; $96,800 median pay (May 2024). Support experience can lead into engineering, solutions, or technical account management.",
+                    candidate: "Show a troubleshooting lab or homelab, concise incident notes, and examples of helping a nontechnical person. A foundational cloud certification is useful when paired with hands-on work."
+                },
+                {
+                    id: "engineer", category: "build", categoryLabel: "Build & automate", icon: "bi-cloud-arrow-up", title: "Cloud Engineer", subtitle: "Build reliable infrastructure",
+                    summary: "Provision and improve the compute, networking, storage, and identity foundations that product teams depend on.",
+                    day: ["Build reusable infrastructure modules and review changes", "Improve availability, performance, and cloud cost", "Partner with developers to deploy services and resolve incidents"],
+                    tools: ["AWS / Azure / GCP", "Terraform", "Python", "Linux", "Docker", "GitHub Actions"],
+                    entry: "Be able to deploy a secure multi-tier application, explain subnets and IAM, use Git, and automate a repeatable task. You should understand why your design works—not just follow a tutorial.",
+                    salary: [["Entry", "$80–110k"], ["Mid-level", "$110–145k"], ["Next step", "Senior / Platform"]],
+                    growth: "Cloud engineer titles span several BLS families. Network architects report $134,050 median pay and 8% projected growth (2025–35); software developers show strong adjacent demand.",
+                    candidate: "A public repo with infrastructure as code, architecture diagrams, cost estimates, security choices, and a useful README. Strong candidates discuss tradeoffs instead of claiming one perfect architecture."
+                },
+                {
+                    id: "devops", category: "build", categoryLabel: "Build & automate", icon: "bi-infinity", title: "DevOps / Platform Engineer", subtitle: "Make delivery fast & repeatable",
+                    summary: "Create the paved roads that let developers test, ship, observe, and recover software with less friction.",
+                    day: ["Maintain CI/CD pipelines and internal developer platforms", "Automate environments, releases, and policy checks", "Tune observability and improve incident response after failures"],
+                    tools: ["GitHub Actions", "Docker", "Kubernetes", "Terraform", "Bash / Python", "Grafana"],
+                    entry: "Understand Git workflows, containers, CI/CD, scripting, and cloud fundamentals. A junior candidate should be able to trace a failed build and describe rollback, monitoring, and secrets management.",
+                    salary: [["Entry", "$85–115k"], ["Mid-level", "$115–155k"], ["Next step", "Senior / SRE"]],
+                    growth: "Often mapped to software developer occupations, with $133,080 median pay (May 2024) and 16% projected growth for developers from 2024–34.",
+                    candidate: "Show a pipeline that tests and deploys an application automatically. Add observability, simulate a failure, document the recovery, and quantify how the automation improves delivery."
+                },
+                {
+                    id: "security", category: "secure", categoryLabel: "Secure", icon: "bi-shield-lock", title: "Cloud Security Analyst", subtitle: "Reduce risk without blocking teams",
+                    summary: "Find risky configurations, improve identity controls, investigate alerts, and help teams build securely by default.",
+                    day: ["Review alerts, access logs, and cloud security posture findings", "Harden IAM policies and remediate exposed resources", "Translate control requirements into automated guardrails"],
+                    tools: ["IAM", "SIEM", "CloudTrail", "CSPM", "Python", "NIST / CIS"],
+                    entry: "Know shared responsibility, least privilege, encryption, logging, and common web and network risks. Practice reading audit logs and explain how you would contain a leaked credential.",
+                    salary: [["Entry", "$70–100k"], ["Mid-level", "$105–150k"], ["Next step", "Engineer / Lead"]],
+                    growth: "Closest BLS family: information security analysts; $124,910 median pay (May 2024) and 29% projected growth from 2024–34.",
+                    candidate: "Pair security curiosity with business judgment. Build a deliberately vulnerable cloud lab, detect the issue, remediate it, and write a short risk summary a manager could understand."
+                },
+                {
+                    id: "architect", category: "design", categoryLabel: "Design", icon: "bi-diagram-3", title: "Cloud Solutions Architect", subtitle: "Turn requirements into systems",
+                    summary: "Design cloud solutions, explain tradeoffs, and align technical architecture with business goals and constraints.",
+                    day: ["Discover requirements with customers and technical teams", "Create architectures, prototypes, estimates, and migration plans", "Present tradeoffs across reliability, security, performance, and cost"],
+                    tools: ["Architecture patterns", "Networking", "IAM", "Databases", "Cost modeling", "Diagramming"],
+                    entry: "Most architect roles are not truly entry level. Start through cloud support, engineering, implementation, or technical consulting, while practicing system design and stakeholder communication.",
+                    salary: [["Associate", "$90–120k"], ["Experienced", "$130–175k"], ["Senior", "$175k+"]],
+                    growth: "Closest BLS family: computer network architects; $134,050 median pay (May 2025), with the lowest 10% below $79,900 and highest 10% above $202,680.",
+                    candidate: "Combine technical depth with discovery skills. Present two viable designs, identify assumptions, estimate operating cost, and explain your recommendation in language an executive and engineer can both use."
+                }
+            ];
+
+            const industries = {
+                Technology: {
+                    label: "Technology & SaaS",
+                    priority: "Fast product growth makes repeatable deployments, platform reliability, and cloud-cost visibility especially important.",
+                    signal: "Automation, product empathy, and comfort operating at a fast release cadence",
+                    employers: "Adobe, Qualtrics, Lucid, Entrata, cloud software startups",
+                    projects: {
+                        support: "Diagnose a multitenant SaaS customer's latency or access issue",
+                        engineer: "Build scalable infrastructure for a new customer-facing service",
+                        devops: "Create a self-service deployment pipeline for product teams",
+                        security: "Detect risky tenant access and automate cloud guardrails",
+                        architect: "Design a resilient, cost-aware architecture for rapid user growth"
+                    }
+                },
+                Finance: {
+                    label: "Finance & fintech",
+                    priority: "Infrastructure must be resilient and explainable, with strong identity controls, encryption, audit trails, and governed change.",
+                    signal: "Risk awareness, careful documentation, and understanding of PCI DSS or SOC controls",
+                    employers: "Goldman Sachs, Zions Bank, SoFi, MX, insurance and payments firms",
+                    projects: {
+                        support: "Trace a failed payment-service connection without exposing account data",
+                        engineer: "Provision an auditable environment for a regulated financial workload",
+                        devops: "Add approvals, evidence capture, and rollback to a release pipeline",
+                        security: "Investigate anomalous access to financial data and preserve evidence",
+                        architect: "Design a highly available payment system with a tested recovery plan"
+                    }
+                },
+                Healthcare: {
+                    label: "Healthcare",
+                    priority: "Patient-data privacy and continuous availability shape every decision; integrations and vendor boundaries add complexity.",
+                    signal: "Privacy-minded design, reliability discipline, and familiarity with HIPAA concepts",
+                    employers: "Intermountain Health, HealthEquity, Epic, health-tech and medical-device firms",
+                    projects: {
+                        support: "Restore a clinical integration while protecting sensitive patient data",
+                        engineer: "Build a monitored, encrypted environment for a healthcare application",
+                        devops: "Automate releases with privacy checks and minimal clinical downtime",
+                        security: "Identify exposed health data and coordinate a compliant response",
+                        architect: "Design secure data exchange between clinical systems and cloud services"
+                    }
+                },
+                Consulting: {
+                    label: "Consulting",
+                    priority: "Projects vary by client, so discovery, migration planning, estimation, and clear communication matter as much as platform depth.",
+                    signal: "Adaptability, client communication, structured problem solving, and broad cloud fluency",
+                    employers: "Deloitte, PwC, EY, KPMG, Accenture, Slalom and cloud partners",
+                    projects: {
+                        support: "Stabilize a client's environment and document the path to resolution",
+                        engineer: "Migrate a legacy workload using reusable infrastructure templates",
+                        devops: "Standardize delivery practices across a client's application portfolio",
+                        security: "Assess cloud controls and turn gaps into a practical remediation plan",
+                        architect: "Create a phased migration roadmap tied to cost and business outcomes"
+                    }
+                }
+            };
+
+            const roleList = document.querySelector("#role-list");
+            let activeRole = roles[0].id;
+            let activeFilter = "all";
+            let activeIndustry = "Technology";
+
+            function renderRoles() {
+                roleList.innerHTML = "";
+                roles.filter(role => activeFilter === "all" || role.category === activeFilter).forEach(role => {
+                    const button = document.createElement("button");
+                    button.className = `role-card${role.id === activeRole ? " active" : ""}`;
+                    button.dataset.role = role.id;
+                    button.setAttribute("aria-pressed", role.id === activeRole);
+                    button.innerHTML = `<span class="role-icon"><i class="bi ${role.icon}"></i></span><span><strong>${role.title}</strong><small>${role.subtitle}</small></span><i class="bi bi-chevron-right"></i>`;
+                    button.addEventListener("click", () => { activeRole = role.id; renderRoles(); renderDetail(role); });
+                    roleList.appendChild(button);
+                });
+            }
+
+            function renderDetail(role) {
+                const industry = industries[activeIndustry];
+                document.querySelector("#detail-category").textContent = role.categoryLabel;
+                document.querySelector("#detail-industry").textContent = industry.label;
+                document.querySelector("#detail-title").textContent = role.title;
+                document.querySelector("#detail-summary").textContent = role.summary;
+                document.querySelector("#detail-industry-priority").textContent = industry.priority;
+                document.querySelector("#detail-industry-project").textContent = industry.projects[role.id];
+                document.querySelector("#detail-industry-signal").textContent = industry.signal;
+                document.querySelector("#detail-industry-employers").textContent = industry.employers;
+                document.querySelector("#detail-day").innerHTML = role.day.map(item => `<li>${item}</li>`).join("");
+                document.querySelector("#detail-tools").innerHTML = role.tools.map(tool => `<span class="skill-chip">${tool}</span>`).join("");
+                document.querySelector("#detail-entry").textContent = role.entry;
+                document.querySelector("#detail-salary").innerHTML = role.salary.map(level => `<div><small>${level[0]}</small><strong>${level[1]}</strong></div>`).join("");
+                document.querySelector("#detail-growth").textContent = role.growth;
+                document.querySelector("#detail-candidate").textContent = role.candidate;
+            }
+
+            document.querySelectorAll(".filter-btn").forEach(button => button.addEventListener("click", () => {
+                document.querySelectorAll(".filter-btn").forEach(item => { item.classList.remove("active"); item.setAttribute("aria-pressed", "false"); });
+                button.classList.add("active");
+                button.setAttribute("aria-pressed", "true");
+                activeFilter = button.dataset.filter;
+                const visible = roles.filter(role => activeFilter === "all" || role.category === activeFilter);
+                if (!visible.some(role => role.id === activeRole)) activeRole = visible[0].id;
+                renderRoles();
+                renderDetail(roles.find(role => role.id === activeRole));
+            }));
+
+            document.querySelectorAll(".industry-card").forEach(button => button.addEventListener("click", () => {
+                document.querySelectorAll(".industry-card").forEach(item => { item.classList.remove("active"); item.setAttribute("aria-pressed", "false"); });
+                button.classList.add("active");
+                button.setAttribute("aria-pressed", "true");
+                activeIndustry = button.dataset.industry;
+                renderDetail(roles.find(role => role.id === activeRole));
+            }));
+
+            renderRoles();
+            renderDetail(roles[0]);
+        </script>
+    </body>
+</html>
