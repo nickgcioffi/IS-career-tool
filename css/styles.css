@@ -10884,6 +10884,44 @@ section {
   color: #2937f0;
 }
 
+/* Shared site navigation (based on the Cloud Infrastructure page). */
+.cloud-nav {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-bottom: 0 !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.cloud-nav .navbar-brand,
+.cloud-nav .nav-link {
+  color: #172033 !important;
+}
+.cloud-nav .nav-link {
+  font-size: 0.88rem;
+  font-weight: 400;
+  opacity: 0.72;
+}
+.cloud-nav .nav-link:hover,
+.cloud-nav .nav-link.active {
+  color: #3563e9 !important;
+  opacity: 1;
+}
+.brand-mark {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.65rem;
+  letter-spacing: -0.02em;
+}
+.brand-cube {
+  align-items: center;
+  background: linear-gradient(45deg, #3563e9, #8bc34a);
+  border-radius: 0.45rem;
+  color: #fff;
+  display: inline-flex;
+  height: 2rem;
+  justify-content: center;
+  width: 2rem;
+}
+
 /*!
  * html5-device-mockups (https://github.com/pixelsign/html5-device-mockups)
  * Copyright 2013 - 2017 pixelsign
