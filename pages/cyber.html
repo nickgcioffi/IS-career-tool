@@ -95,7 +95,7 @@
                 #f3edff 50%,
                 #e8fff8 100%
             );
-            padding: 100px 0;
+            padding: 160px 0 100px;
             border-bottom: 8px solid var(--cyber-purple);
         }
 
@@ -508,7 +508,7 @@
         @media (max-width: 991px) {
 
             .cyber-hero {
-                padding: 70px 0;
+                padding: 130px 0 70px;
             }
 
             .cyber-hero h1 {
@@ -543,69 +543,19 @@
          NAVIGATION
     ========================================= -->
 
-    <nav class="navbar navbar-expand-lg navbar-light py-3">
-        <div class="container px-5">
-
-            <a class="navbar-brand" href="../index.html">
-                Career Paths
-            </a>
-
-            <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-            <div class="collapse navbar-collapse"
-                id="navbarSupportedContent">
-
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3"
-                            href="cloud.html">
-                            Cloud Computing
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3"
-                            href="product.html">
-                            Product Management
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3 active"
-                            href="cyber.html">
-                            Cyber Security
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link me-lg-3"
-                            href="data.html">
-                            Data
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a
-                            class="nav-link me-lg-3"
-                            href="is-career-launchpad.html"
-                        >
-                            Interview Prep    
-                            
-                        </a>
-                    </li>
-
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top cloud-nav shadow-sm">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand brand-mark fw-bold" href="../index.html"><span class="brand-cube"><i class="bi bi-grid-3x3-gap-fill"></i></span> IS Career Atlas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNav" aria-controls="siteNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="siteNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cloud.html">Cloud Infrastructure</a></li>
+                    <li class="nav-item"><a class="nav-link" href="product.html">Product Management</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="cyber.html">Cybersecurity</a></li>
+                    <li class="nav-item"><a class="nav-link" href="data.html">Data Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="is-career-launchpad.html">Interview Prep</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>
